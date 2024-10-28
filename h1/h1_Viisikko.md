@@ -50,6 +50,10 @@ Tehtävässä auttoi Tero Karvisen Salt-artikkelit (Lähteissä), Tehtävänanno
 
 `sudo salt-call --version` tarkistellaan, että asennus on paikallaan
 
+![Add file: Upload](h1_kuvat/h1_1.png)
+
+Versio 3007.1 asennettuna.
+
 
 
 ## c) Viisi tärkeintä tilafunktiota
