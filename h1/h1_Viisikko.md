@@ -63,13 +63,15 @@ Seuraavalla komennolla voidaan asentaa "tree" niminen paketti, jolla voidaan ott
 
 `sudo salt-call --local state.single pkg.installed tree`
 Kuvassa näkyvissä, että tree-paketti on asennettu (succeeded, changed) onnistuneesti.
-tähän kuva h1_2
+
+![Add file: Upload](h1_kuvat/h1_2.png)
 
 ### 
 
 ## d) Idempotentti 28.10.2024 18:35-18:40
 Idempotentti tarkoittaa, että ei jotain komentoa ei enää voi toistaa. Esimerkkinä käytän tässä aiemmin tehtyä "tree" paketin asennusta. Ajan saman komennon `sudo salt-call --local state.single pkg.installed tree` uudestaan. Siitä huomaan, että asennus ei onnistu uudestaan, mikään ei muutu, koska paketti on jo asennettu. Tätä voi toistaa useamminkin, ja aina sama lopputulema.
-tähän kuva h1_3
+
+![Add file: Upload](h1_kuvat/h1_3.png)
 
 ## e) Herra-orja arkkitehtuuri
 
