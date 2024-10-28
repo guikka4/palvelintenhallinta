@@ -25,10 +25,14 @@ Raportissa on tiivistettynä artikkelien keskeinen sisältö.
 ## a) Debian 12 Bookwormin asennus virtuaalikoneeseen 28.10.2024 17:10-17:40
 Asennus toimii. Ohjeet https://terokarvinen.com/2021/install-debian-on-virtualbox/
 Asennuksen jälkeen päivitys, uprgradet, palomuuri sekä palomuurin päälle laittaminen. Komennot alla
+
 `sudo apt-get update`
-'sudo apt-get -y dist-upgrade'
-'sudo apt-get -y install ufw'
-'sudo ufw enable'
+
+`sudo apt-get -y dist-upgrade`
+
+`sudo apt-get -y install ufw`
+
+`sudo ufw enable`
 
 ## b) Saltin asennus virtuaalikoneelle
 
