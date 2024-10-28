@@ -22,8 +22,13 @@ Raportissa on tiivistettynä artikkelien keskeinen sisältö.
 - Raportissa tulisi olla siisti ulkoasu, jotta sen lukeminen helpottuu
 (Karvinen, T. 2006. https://terokarvinen.com/2006/06/04/raportin-kirjoittaminen-4/)
 
-## a) Debian 12 Bookwormin asennus virtuaalikoneeseen
-
+## a) Debian 12 Bookwormin asennus virtuaalikoneeseen 28.10.2024 17:10-17:40
+Asennus toimii. Ohjeet https://terokarvinen.com/2021/install-debian-on-virtualbox/
+Asennuksen jälkeen päivitys, uprgradet, palomuuri sekä palomuurin päälle laittaminen. Komennot alla
+    sudo apt-get update
+    sudo apt-get -y dist-upgrade
+    sudo apt-get -y install ufw
+    sudo ufw enable
 
 ## b) Saltin asennus virtuaalikoneelle
 
@@ -38,7 +43,8 @@ Raportissa on tiivistettynä artikkelien keskeinen sisältö.
 
 
 ## Lähteet
-- Karvinen, T. 2006. https://terokarvinen.com/2006/06/04/raportin-kirjoittaminen-4/. Luettu 26.10.2024. Luettavissa 26.10.2024
-- Karvinen, T. 2018. https://terokarvinen.com/2018/03/28/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/. Luettu 26.10.2024. Luettavissa 26.10.2024
-- Karvinen, T. 2021. https://terokarvinen.com/2021/salt-run-command-locally/. Luettu 26.10.2024. Luettavissa 26.10.2024
-- 
+- Karvinen, T. 2006. https://terokarvinen.com/2006/06/04/raportin-kirjoittaminen-4/. Luettavissa 26.10.2024
+- Karvinen, T. 2018. https://terokarvinen.com/2018/03/28/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/. Luettavissa 26.10.2024
+- Karvinen, T. 2021. https://terokarvinen.com/2021/install-debian-on-virtualbox/. Luettavissa 28.10.2024
+- Karvinen, T. 2021. https://terokarvinen.com/2021/salt-run-command-locally/. Luettavissa 26.10.2024
+
