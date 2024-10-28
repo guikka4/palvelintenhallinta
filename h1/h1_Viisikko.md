@@ -72,10 +72,10 @@ File-tilafunktiolla tarkastellaan, löytyykö joku tiedosto. Jos ei löydy, se l
 `sudo salt-call --local state.single file.managed /tmp/testi1`
 
 Kuvassa näkyy tulos, onnistunut yksi tyhjän tiedoston luonti, koska sitä ei ollut vielä olemassa.
-tähän kuva h1_4
+![Add file: Upload](h1_kuvat/h1_4.png)
 
 Poistin tiedoston vielä komennolla `sudo salt-call --local state.single file.absent /tmp/testi1`
-tähän kuva h1_5
+![Add file: Upload](h1_kuvat/h1_5.png)
 
 ### service 
 
