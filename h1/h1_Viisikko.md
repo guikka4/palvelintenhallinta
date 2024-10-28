@@ -57,7 +57,7 @@ Versio 3007.1 asennettuna.
 ## c) Viisi tärkeintä tilafunktiota
 Tehtävässä tarkoitus näyttää esimerkit viidestä tärkeimmästä Saltin tilafunktiosta, eli pkg, file, service, user ja cmd. Vinkit Artikkelissa Salt Call Locally (Karvinen, T. 2021). Tilafunktioilla on käytännössä tarkoitus selvittää, onko jokin jo olemassa, ja jos ei ole, korjata tilanne.
 
-### pkg
+### pkg 28.10.2024 18:15-18:35
 pkg-tilafunktiolla tarkastellaa, onko joku sovellus asennettuna. Jos ei ole, se asennetaan. Pkg-tilaa voidaan käyttää sekä `pkg.installed`, asennettu, tai `pkg.removed`, poistettu.
 Seuraavalla komennolla voidaan asentaa "tree" niminen paketti, jolla voidaan ottaa hakemistosta puumainen kuva. Päivitys on jo otettu aiemmin, eli suoraan asennukseen. Local -komennossa tarkoittaa, että nämä komennot ajetaan paikallisesti.
 
@@ -66,7 +66,18 @@ Kuvassa näkyvissä, että tree-paketti on asennettu (succeeded, changed) onnist
 
 ![Add file: Upload](h1_kuvat/hi1_2.png)
 
-### 
+### file 28.10.2024 18:40-18:50
+File-tilafunktiolla tarkastellaan, löytyykö joku tiedosto. Jos ei löydy, se luodaan (file.managed). Tarkasteluun kelpaa myös, jos halutaan poistaa tiedostoja (file.absent). Alle olevassa esimerkissä tarkastelen, löytyykö tiedosto. Se ei löydy, joten se luodaan.
+
+`sudo salt-call --local state.single file.managed /tmp/testi1`
+
+Kuvassa näkyy tulos, onnistunut yksi tyhjän tiedoston luonti, koska sitä ei ollut vielä olemassa.
+tähän kuva h1_4
+
+Poistin tiedoston vielä komennolla `sudo salt-call --local state.single file.absent /tmp/testi1`
+tähän kuva h1_5
+
+### service 
 
 ## d) Idempotentti 28.10.2024 18:35-18:40
 Idempotentti tarkoittaa, että ei jotain komentoa ei enää voi toistaa. Esimerkkinä käytän tässä aiemmin tehtyä "tree" paketin asennusta. Ajan saman komennon `sudo salt-call --local state.single pkg.installed tree` uudestaan. Siitä huomaan, että asennus ei onnistu uudestaan, mikään ei muutu, koska paketti on jo asennettu. Tätä voi toistaa useamminkin, ja aina sama lopputulema.
