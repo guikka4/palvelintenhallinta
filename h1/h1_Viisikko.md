@@ -64,7 +64,7 @@ Seuraavalla komennolla voidaan asentaa "tree" niminen paketti, jolla voidaan ott
 `sudo salt-call --local state.single pkg.installed tree`
 Kuvassa näkyvissä, että tree-paketti on asennettu (succeeded, changed) onnistuneesti.
 
-![Add file: Upload](h1_kuvat/h1_2.png)
+![Add file: Upload](h1_kuvat/hi_2.png)
 
 ### 
 
