@@ -24,7 +24,7 @@ Raportissa on tiivistettynä artikkelien keskeinen sisältö.
 
 ## a) Debian 12 Bookwormin asennus virtuaalikoneeseen 28.10.2024 17:10-17:40
 Asennus toimii. Ohjeet https://terokarvinen.com/2021/install-debian-on-virtualbox/
-Asennuksen jälkeen päivitys, uprgradet, palomuuri sekä palomuurin päälle laittaminen. Komennot alla
+Asennuksen jälkeen päivitys, upgradet, palomuuri sekä palomuurin päälle laittaminen. Komennot alla
 
 `sudo apt-get update`
 
@@ -34,7 +34,22 @@ Asennuksen jälkeen päivitys, uprgradet, palomuuri sekä palomuurin päälle la
 
 `sudo ufw enable`
 
-## b) Saltin asennus virtuaalikoneelle
+## b) Saltin asennus virtuaalikoneelle 28.10.2024 17:45-17
+Tehtävänä on asentaa Salt (salt-minion) juuri luodulle virtuaalikoneelle. Aloitus updatella (asennukset ei toimi ennen sitä). Sen jälkeen itse Saltin asennus ja testaus. Komennot, jotka käytössä, alla.
+Tehtävässä auttoi Tero Karvisen Salt-artikkelit (Lähteissä), Tehtävänannon kommenttikentässä oleva Tero Karvisen hakemiston luontiohje, sekä Salt Projectin sivusto, jossa asennusohjeet Saltille. https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/debian.html#install-debian. Aloitettiin hakemiston luonnilla (tehtävänanto), jonka jälkeen komennot.
+
+`sudo apt-get update` päivitys
+
+`sudo apt-get -y install salt-master` Salt "Herran" asennus
+
+`sudo apt-get -y install salt-minion` Salt orjan asennus
+
+`sudo systemctl enable salt-master` demoni käyntiin
+
+`sudo systemctl enable salt-minion` demoni käyntiin
+
+`sudo salt-call --version` tarkistellaan, että asennus on paikallaan
+
 
 
 ## c) Viisi tärkeintä tilafunktiota
@@ -51,4 +66,5 @@ Asennuksen jälkeen päivitys, uprgradet, palomuuri sekä palomuurin päälle la
 - Karvinen, T. 2018. https://terokarvinen.com/2018/03/28/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/. Luettavissa 26.10.2024
 - Karvinen, T. 2021. https://terokarvinen.com/2021/install-debian-on-virtualbox/. Luettavissa 28.10.2024
 - Karvinen, T. 2021. https://terokarvinen.com/2021/salt-run-command-locally/. Luettavissa 26.10.2024
+- Saltproject. https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/debian.html#install-debian. Luettavissa 28.10.2024
 
