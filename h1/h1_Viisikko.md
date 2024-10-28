@@ -34,7 +34,7 @@ Asennuksen jälkeen päivitys, upgradet, palomuuri sekä palomuurin päälle lai
 
 `sudo ufw enable`
 
-## b) Saltin asennus virtuaalikoneelle 28.10.2024 17:45-17
+## b) Saltin asennus virtuaalikoneelle 28.10.2024 17:45-18:12
 Tehtävänä on asentaa Salt (salt-minion) juuri luodulle virtuaalikoneelle. Aloitus updatella (asennukset ei toimi ennen sitä). Sen jälkeen itse Saltin asennus ja testaus. Komennot, jotka käytössä, alla.
 Tehtävässä auttoi Tero Karvisen Salt-artikkelit (Lähteissä), Tehtävänannon kommenttikentässä oleva Tero Karvisen hakemiston luontiohje, sekä Salt Projectin sivusto, jossa asennusohjeet Saltille. https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/debian.html#install-debian. Aloitettiin hakemiston luonnilla (tehtävänanto), jonka jälkeen komennot.
 
@@ -54,13 +54,22 @@ Tehtävässä auttoi Tero Karvisen Salt-artikkelit (Lähteissä), Tehtävänanno
 
 Versio 3007.1 asennettuna.
 
-
-
 ## c) Viisi tärkeintä tilafunktiota
+Tehtävässä tarkoitus näyttää esimerkit viidestä tärkeimmästä Saltin tilafunktiosta, eli pkg, file, service, user ja cmd. Vinkit Artikkelissa Salt Call Locally (Karvinen, T. 2021). Tilafunktioilla on käytännössä tarkoitus selvittää, onko jokin jo olemassa, ja jos ei ole, korjata tilanne.
 
+### pkg
+pkg-tilafunktiolla tarkastellaa, onko joku sovellus asennettuna. Jos ei ole, se asennetaan. Pkg-tilaa voidaan käyttää sekä `pkg.installed`, asennettu, tai `pkg.removed`, poistettu.
+Seuraavalla komennolla voidaan asentaa "tree" niminen paketti, jolla voidaan ottaa hakemistosta puumainen kuva. Päivitys on jo otettu aiemmin, eli suoraan asennukseen. Local -komennossa tarkoittaa, että nämä komennot ajetaan paikallisesti.
 
-## d) Idempotentti
+`sudo salt-call --local state.single pkg.installed tree`
+Kuvassa näkyvissä, että tree-paketti on asennettu (succeeded, changed) onnistuneesti.
+tähän kuva h1_2
 
+### 
+
+## d) Idempotentti 28.10.2024 18:35-18:40
+Idempotentti tarkoittaa, että ei jotain komentoa ei enää voi toistaa. Esimerkkinä käytän tässä aiemmin tehtyä "tree" paketin asennusta. Ajan saman komennon `sudo salt-call --local state.single pkg.installed tree` uudestaan. Siitä huomaan, että asennus ei onnistu uudestaan, mikään ei muutu, koska paketti on jo asennettu. Tätä voi toistaa useamminkin, ja aina sama lopputulema.
+tähän kuva h1_3
 
 ## e) Herra-orja arkkitehtuuri
 
