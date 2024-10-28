@@ -83,22 +83,22 @@ Service funktiota voidaan käyttää demonin uudelleenkäynnistykseen, mikäli s
 Esimerkissä ajan komennot, joilla voidaan ajaa joko käynnistys, tai sammutustilat demonille (tässä tapauksessa apache2:lle). Koska, ko. demonia ei ole asennettuna tällä koneella, osaa Salt myös ilmoittaa tästä. Lisäsin "-l info" komentoon, sillä saan tietoja komennon tapahtumista.
 
 `sudo salt-call --local -l info state.single service.running apache2 enable=True`. Koska ei ole asennusta, tulee "not available" ja failed.
-tähän kuva h1_6
+![Add file: Upload](h1_kuvat/h1_6.png)
 
 `sudo salt-call --local -l info state.single service.dead enable=False`. Koska ei asennettuna, tulee edelleen "not available", mutta koska ehtona oli, ettei tämä palvelu ole käynnissä, tulee succeeded.
-tähän kuva h1_7
+![Add file: Upload](h1_kuvat/h1_7.png)
 
 ### user 28.10.2024 20:10-20:20
 user.present tilafunktiolla voidaan tarkistella, onko käyttäjää. Ja jos ei ole, tehdä se (user.present). Sama käyttäjän poisto (user.absent).
 
 `sudo salt-call --local state single user.present peesi`. Tällä luodaan käyttäjä "peesi", mikäli sitä ei löydy. Käyttäjää ei ollut, joten se luodaan. Samalla tulee luotua käyttäjäryhmä sekä kotihakemisto.
-tähän kuva h1_8
+![Add file: Upload](h1_kuvat/h1_8.png)
 
 `sudo salt-call --local state single user.absent peesi`. Tällä poistetaan käyttäjä "peesi", mikäli se on vielä olemassa. 
-tähän kuva h1_9
+![Add file: Upload](h1_kuvat/h1_9.png)
 
 Huom, poistetun käyttäjän kotihakemisto jää vielä olemaan, mikä on hyvä asia. Jos käyttäjä poistetaan, jää hänen tiedostonsa vielä yritykselle.
-tähän kuva h1_10
+![Add file: Upload](h1_kuvat/h1_10.png)
 
 ### cmd 28.10.2024 20:20-20:25
 cmd.run komennolla ajetaan joku tiedosto. Olisiko niin, että jos tekstitiedostossa, mitä tällä komennolla ajetaan, löytyy joku komento, se suoritetaan, mikäli se ei ole jo suoritettu? Tämä pitää tarkistaa.
