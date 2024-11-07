@@ -118,18 +118,16 @@ Testaan herra-orja arkkitehtuuria lokaalisti. Salt on asennettu. Alla komennot j
 `sudoedit /etc/salt/minion` editoidaan minionin tiedostoja, ja kirjoitetaan ilman kommenttia `master: localhost`. Tällä saadaan orjalta avain, jonka masterilla voi hyväksyä
 `sudo systemctl restart salt-minion.service` potkitaan demoni uudelleen käyntiin, jotta saadaan avain minionilta
 `sudo salt-key --list all` näyttää, että nyt minionin avain löytyy hyväksymättömistä avaimista
-Tähän kuva h1_11
+
+![Add file: Upload](h1_kuvat/h1_11.png)
 
 `sudo salt-key -A` hyväksytään kaikki avaimet.
 
-Tähän kuva h1_12
+![Add file: Upload](h1_kuvat/h1_12.png)
 
 Kysytään minioneilta, ketä käyttäjiä löytyy `sudo salt '*' cmd.run 'whoami'`. Vastaus tulee minionilta.
 
-Tähän kuva h1_13
-
-
-
+![Add file: Upload](h1_kuvat/h1_13.png)
 
 
 ## Lähteet
