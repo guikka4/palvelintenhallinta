@@ -111,7 +111,7 @@ Idempotentti tarkoittaa, että ei jotain komentoa ei enää voi toistaa. Esimerk
 
 ![Add file: Upload](h1_kuvat/h1_3.png)
 
-## e) Herra-orja arkkitehtuuri 7.11.2024 14:30-
+## e) Herra-orja arkkitehtuuri 7.11.2024 14:30-14:45
 Testaan herra-orja arkkitehtuuria lokaalisti. Salt on asennettu. Alla komennot ja tapahtumat, miten testi etenee.
 `sudo apt-get update` päivitykset
 `sudo salt-key --list all` komennolla katselin, että hyväksymättömiä avaimia ei ole tällä hetkellä. Tähän tökkäsi 28.10. tekeminen.
