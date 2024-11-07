@@ -57,6 +57,11 @@ Alla olevilla komennoilla nähdään virtuaalikoneen status, tässä tapauksessa
 
 ## c) Kaksin kaunihimpi 7.11.2024 16:00-
 Tehtävänosassa tehdään kahden virtuaalikoneen verkko. Lopuksi pingataan, jotta nähdään niiden olevan verkossa
+Teen ensin uudet virtuaalikoneet. Tehtävässä käytän apuna https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/ artikkelia. Työskentelen HostOS:llä. Luon kansion kotihakemistooni, lataan sinne vagrantfilen.
+
+    mkdir kaksikonetta
+
+    vagrant init debian/bookworm64
 
 
 
