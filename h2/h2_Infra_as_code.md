@@ -50,6 +50,7 @@ Kuvassa näkyvissä VirtualBoxin näkymä, jossa uusi kone näkyvissä.
 tähän kuva h2_3
 
 Alla olevilla komennoilla nähdään virtuaalikoneen status, tässä tapauksessa running, sekä pysäytetään kone ja poistetaan se kaikkine tiedostoineen. Lähde `vagrant help`
+
     vagrant status
     vagrant halt
     vagrant destroy
