@@ -2,6 +2,9 @@
 Tämä on palvelinten hallinta -kurssin ensimmäisen viikkotehtävän raportti. Raportti koostuu kuudesta tehtävästä (x-e) ja niiden ratkaisuista. Tehtävänanto löytyy https://terokarvinen.com/palvelinten-hallinta/#h1-viisikko.
 Työskentely tapahtuu kotona omalla kannettavalla, joka on kevyeen pelikäyttöön tarkoitettu. Käyttöjärjestelmänä Windows 11 Home, ja tehtävien tekemiseen VirtualBoxin kautta asennettu Linux Debian Bookworm.
 
+### UPDATE 7.11.2024 klo 14.30
+E tehtävä on jäänyt aikaisemmin tekemättä, koska siihen ei löytynyt ymmärrystä. Kotitehtävien läpikäynnin yhteydessä oppitunnilla kuitenkin tuli vinkkejä, ja tehtävä E on ratkaistu tämän väliotsikon päivämäärällä.
+
 ## x) Lue ja tiivistä
 Raportissa on tiivistettynä artikkelien keskeinen sisältö.
 ### Run Salt Command Locally
@@ -108,7 +111,25 @@ Idempotentti tarkoittaa, että ei jotain komentoa ei enää voi toistaa. Esimerk
 
 ![Add file: Upload](h1_kuvat/h1_3.png)
 
-## e) Herra-orja arkkitehtuuri
+## e) Herra-orja arkkitehtuuri 7.11.2024 14:30-
+Testaan herra-orja arkkitehtuuria lokaalisti. Salt on asennettu. Alla komennot ja tapahtumat, miten testi etenee.
+`sudo apt-get update` päivitykset
+`sudo salt-key --list all` komennolla katselin, että hyväksymättömiä avaimia ei ole tällä hetkellä. Tähän tökkäsi 28.10. tekeminen.
+`sudoedit /etc/salt/minion` editoidaan minionin tiedostoja, ja kirjoitetaan ilman kommenttia `master: localhost`. Tällä saadaan orjalta avain, jonka masterilla voi hyväksyä
+`sudo systemctl restart salt-minion.service` potkitaan demoni uudelleen käyntiin, jotta saadaan avain minionilta
+`sudo salt-key --list all` näyttää, että nyt minionin avain löytyy hyväksymättömistä avaimista
+Tähän kuva h1_11
+
+`sudo salt-key -A` hyväksytään kaikki avaimet.
+
+Tähän kuva h1_12
+
+Kysytään minioneilta, ketä käyttäjiä löytyy `sudo salt '*' cmd.run 'whoami'`. Vastaus tulee minionilta.
+
+Tähän kuva h1_13
+
+
+
 
 
 ## Lähteet
