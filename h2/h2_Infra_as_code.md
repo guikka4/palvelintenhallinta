@@ -63,7 +63,26 @@ Teen ensin uudet virtuaalikoneet. Tehtävässä käytän apuna https://terokarvi
     cd kaksikonetta
     vagrant init debian/bookworm64
 
+Tämän jälkeen avaan Vagrantfilen ja kopioin siihen artikkelissa olevan koodin. Powershell-komennolla `notepad vagrantfile` pystytään avaamaan tekstieditori, johon koodin voi kopioida. `vagrant status` voidaan testata jälleen, että koneet ovat pystyssä.
 
+Seuraavaksi virtuaalikoneiden asennus ja käynnistys
+
+    vagrant up
+
+Yhteyden tarkistus. Menen ensin sisälle t001 koneeseen ssh:lla, ja pingaan sieltä t002 konetta, jonka jälkeen ssh sulkeminen. Sama toisin päin. IP-osoitteet ovat koodista, joka kopioitiin vagrantfileen. IP osoitteen saisi tietoon myös `hostname -I` komennolla
+
+    vagrant ssh t001
+    ping 192.168.88.102
+    exit
+
+    vagrant ssh t002
+    ping 192.168.88.101
+    exit
+
+tähän kuvat h2_4 h2_5
+
+
+    
 
 
 ## Lähteet
