@@ -55,7 +55,7 @@ Alla olevilla komennoilla nähdään virtuaalikoneen status, tässä tapauksessa
     vagrant halt
     vagrant destroy
 
-## c) Kaksin kaunihimpi 7.11.2024 16:00-
+## c) Kaksin kaunihimpi 7.11.2024 16:00-16:30
 Tehtävänosassa tehdään kahden virtuaalikoneen verkko. Lopuksi pingataan, jotta nähdään niiden olevan verkossa
 Teen ensin uudet virtuaalikoneet. Tehtävässä käytän apuna https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/ artikkelia. Työskentelen HostOS:llä. Luon kansion kotihakemistooni, siirryn sinne, lataan sinne vagrantfilen.
 
@@ -81,8 +81,9 @@ Yhteyden tarkistus. Menen ensin sisälle t001 koneeseen ssh:lla, ja pingaan siel
 
 ![Add file: Upload](h2_kuvat/h2_4.png) ![Add file: Upload](h2_kuvat/h2_5.png)
 
+## d) Herra-orja verkossa 16:
+Tehtävässä teen herra-orja -verkon näille kahdelle äskön luodulle virtuaalikoneelle. Apuna käytän Tero Karvisen artikkelia https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux.
 
-    
 
 
 ## Lähteet
