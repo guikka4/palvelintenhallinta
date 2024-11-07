@@ -30,7 +30,8 @@ Raportissa on tiivistetty artikkelien keskeiset sisällöt
 - YAML on hyvin jäsennelty, lohkomainen koodauskieli. Siinä sisennetään jokainen oma "lohkonsa". Yleinen sisennystapa on 2 välilyöntiä.
 (Saltproject. https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml)
 
-## a) 
+## a) Hello Vagrant! 7.11.2024 15:20
+
 
 ## Lähteet
 - Hartikainen, P. 2024. https://github.com/guikka4/palvelintenhallinta/blob/main/h1/h1_Viisikko.md. Luettavissa 7.11.2024
