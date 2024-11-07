@@ -36,7 +36,7 @@ Vagrant on asennettu aiemmin hostOS:lle. Komento Powershellistä
 
 tähän kuva h2_1
 
-## b) Linux Vagrant
+## b) Linux Vagrant 7.11.2024 15:40-15:55
 Tehtävänosassa luodaan Vagrantilla uusi virtuaalikone
 `mkdir firstbookworm` uusi kansio virtuaalikoneprojektia ja vagrantfileä varten. Olen siis HostOS:n omassa käyttäjähakemistossa
 `vagrant init debian/bookworm64` lataa uusimman debian-version imagen luotuun kansioon
@@ -44,11 +44,18 @@ Tehtävänosassa luodaan Vagrantilla uusi virtuaalikone
 tänän kuva h2_2
 
     vagrant up
-luodaan uusi kone. Tässä kohtaa powershellissä näkyy tekstiä, kun uuden koneen asennus etenee
+luodaan uusi kone. Tässä kohtaa powershellissä näkyy tekstiä, kun uuden koneen asennus etenee.
+Kuvassa näkyvissä VirtualBoxin näkymä, jossa uusi kone näkyvissä.
 
+tähän kuva h2_3
 
+Alla olevilla komennoilla nähdään virtuaalikoneen status, tässä tapauksessa running, sekä pysäytetään kone ja poistetaan se kaikkine tiedostoineen. Lähde `vagrant help`
+    vagrant status
+    vagrant halt
+    vagrant destroy
 
-
+## c) Kaksin kaunihimpi 7.11.2024 16:00-
+Tehtävänosassa tehdään kahden virtuaalikoneen verkko. Lopuksi pingataan, jotta nähdään niiden olevan verkossa
 
 
 
