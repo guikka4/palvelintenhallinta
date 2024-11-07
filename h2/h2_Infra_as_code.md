@@ -34,20 +34,20 @@ Raportissa on tiivistetty artikkelien keskeiset sisällöt
 Vagrant on asennettu aiemmin hostOS:lle. Komento Powershellistä
 `vagrant --version`
 
-tähän kuva h2_1
+![Add file: Upload](h2_kuvat/h2_1.png)
 
 ## b) Linux Vagrant 7.11.2024 15:40-15:55
 Tehtävänosassa luodaan Vagrantilla uusi virtuaalikone
 `mkdir firstbookworm` uusi kansio virtuaalikoneprojektia ja vagrantfileä varten. Olen siis HostOS:n omassa käyttäjähakemistossa
 `vagrant init debian/bookworm64` lataa uusimman debian-version imagen luotuun kansioon
 
-tänän kuva h2_2
+![Add file: Upload](h2_kuvat/h2_2.png)
 
     vagrant up
 luodaan uusi kone. Tässä kohtaa powershellissä näkyy tekstiä, kun uuden koneen asennus etenee.
 Kuvassa näkyvissä VirtualBoxin näkymä, jossa uusi kone näkyvissä.
 
-tähän kuva h2_3
+![Add file: Upload](h2_kuvat/h2_3.png)
 
 Alla olevilla komennoilla nähdään virtuaalikoneen status, tässä tapauksessa running, sekä pysäytetään kone ja poistetaan se kaikkine tiedostoineen. Lähde `vagrant help`
 
@@ -79,7 +79,7 @@ Yhteyden tarkistus. Menen ensin sisälle t001 koneeseen ssh:lla, ja pingaan siel
     ping 192.168.88.101
     exit
 
-tähän kuvat h2_4 h2_5
+![Add file: Upload](h2_kuvat/h2_4.png) ![Add file: Upload](h2_kuvat/h2_5.png)
 
 
     
