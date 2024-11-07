@@ -81,7 +81,7 @@ Yhteyden tarkistus. Menen ensin sisälle t001 koneeseen ssh:lla, ja pingaan siel
 
 ![Add file: Upload](h2_kuvat/h2_4.png) ![Add file: Upload](h2_kuvat/h2_5.png)
 
-## d) Herra-orja verkossa 17:10-
+## d) Herra-orja verkossa 17:10-18:20
 Tehtävässä teen herra-orja -verkon näille kahdelle äskön luodulle virtuaalikoneelle. Apuna käytän Tero Karvisen artikkelia https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux.
 Aloitetaan tekemällä t001 koneesta master. Avataan yllä kuvatulla tavalla ssh yhteys t001 koneeseen, jonka jälkeen masterin asennus. Tämän jälkeen kirjaudutaan ssh:lla t002 koneelle, ja tehdään siitä minion. Sen jälkeen kirjataan masterin tiedot minionille, ja hyväksytään avain. Lopuksi testataan että yhteys pelittää komentamalla orjaa.
 
@@ -121,8 +121,27 @@ Eli pakettia ei ole asennettu. Sitten uudestaan asennusyritys
     open-vm-tools-salt-minion : Depends: open-vm-tools (= 2:12.2.0-1+deb12u2~bpo11+1) but 2:11.2.5-2+deb11u3 is to be installed
     E: Unable to correct problems, you have held broken packages.
 
+Ymmärrän sen verran lontoota, että tässä kohtaa ei jotkun asennellut versiot jostain kohtaa (huom viimeinen kappale virheilmoituksessa). Kokeillaan vielä paria juttua.
+`apt-cache policy open-vm-tools-desktop open-vm-tools` kertoo virheessä olevien open-vm-toolsien puuttuvan. https://askubuntu.com/questions/1232829/ubuntu-18-04-open-vm-tools-broken-package löytyy käytetty komento.
+
+tyähän h2_6
+
+Kokeillaan asentaa (https://docs.vmware.com/en/VMware-Tools/12.4.0/com.vmware.vsphere.vmwaretools.doc/GUID-C48E1F14-240D-4DD1-8D4C-25B6EBE4BB0F.html) ja sen jälkeen uudestaan katsotaan vm-toolsien asentuminen
+    sudo apt-get install open-vm-tools
+    apt-cache policy open-vm-tools-desktop open-vm-tools
+
+Tähän kuva h2_7
+
+Uusi kokeilu salt komennoilla. Ei toimi, salt-minionia asentaessa tulee edelleen virhe "Unable to locate package salt-minion". Nyt loppui tietotaito ja ymmärrys.
+
+
+
+
+
 
 ## Lähteet
+- https://askubuntu.com/questions/1232829/ubuntu-18-04-open-vm-tools-broken-package. Luettavissa 7.11.2024
+  https://docs.vmware.com/en/VMware-Tools/12.4.0/com.vmware.vsphere.vmwaretools.doc/GUID-C48E1F14-240D-4DD1-8D4C-25B6EBE4BB0F.html. Luettavissa 7.11.2024
 - Hartikainen, P. 2024. https://github.com/guikka4/palvelintenhallinta/blob/main/h1/h1_Viisikko.md. Luettavissa 7.11.2024
 - Karvinen, T. 2021. https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/. Luettavissa 7.11.2024
 - Karvinen, T. 2023. https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file. Luettavissa 7.11.2024
