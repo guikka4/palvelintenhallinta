@@ -30,7 +30,27 @@ Raportissa on tiivistetty artikkelien keskeiset sisällöt
 - YAML on hyvin jäsennelty, lohkomainen koodauskieli. Siinä sisennetään jokainen oma "lohkonsa". Yleinen sisennystapa on 2 välilyöntiä.
 (Saltproject. https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml)
 
-## a) Hello Vagrant! 7.11.2024 15:20
+## a) Hello Vagrant! 7.11.2024 15:40
+Vagrant on asennettu aiemmin hostOS:lle. Komento Powershellistä
+`vagrant --version`
+
+tähän kuva h2_1
+
+## b) Linux Vagrant
+Tehtävänosassa luodaan Vagrantilla uusi virtuaalikone
+`mkdir firstbookworm` uusi kansio virtuaalikoneprojektia ja vagrantfileä varten. Olen siis HostOS:n omassa käyttäjähakemistossa
+`vagrant init debian/bookworm64` lataa uusimman debian-version imagen luotuun kansioon
+
+tänän kuva h2_2
+
+    vagrant up
+luodaan uusi kone. Tässä kohtaa powershellissä näkyy tekstiä, kun uuden koneen asennus etenee
+
+
+
+
+
+
 
 
 ## Lähteet
