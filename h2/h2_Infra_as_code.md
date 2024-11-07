@@ -23,8 +23,18 @@ Raportissa on tiivistetty artikkelien keskeiset sisällöt
 - Saltin hakemiston "ylätasolla", eli moduulikansioiden yläpuolelle luodaan top.sls tiedosto. Siihen määritellään, mitkä orjat tekevät mitäkin.
 (Karvinen, T. 2023. https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file)
 
+### Salt Overview (YAML)
+- YAML on koodikieli, jota käytetään Saltissa. Se ikäänkuin "muuntaa" koodinsa python-kielelle
+- YAML:ssa oma kirjoitustyylinsä, ja esimerkiksi tabulaattoria ei käytetä ollenkaan. Koodi toimii avain-arvo -parina
+- YAML:ssa on kolme pääelementtiä: mappaus (avain : arvo), listat ja hakemistot. Kaikki toimivat kylläkin avain : arvo periaatteella.
+- YAML on hyvin jäsennelty, lohkomainen koodauskieli. Siinä sisennetään jokainen oma "lohkonsa". Yleinen sisennystapa on 2 välilyöntiä.
+(Saltproject. https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml)
+
+## a) 
+
 ## Lähteet
 - Hartikainen, P. 2024. https://github.com/guikka4/palvelintenhallinta/blob/main/h1/h1_Viisikko.md. Luettavissa 7.11.2024
 - Karvinen, T. 2021. https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/. Luettavissa 7.11.2024
 - Karvinen, T. 2023. https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file. Luettavissa 7.11.2024
 - Karvinen, T. 2024. https://terokarvinen.com/2024/hello-salt-infra-as-code/.Luettavissa 7.11.2024
+- Saltproject. https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml. Luettavissa 7.11.2024
