@@ -81,9 +81,45 @@ Yhteyden tarkistus. Menen ensin sisälle t001 koneeseen ssh:lla, ja pingaan siel
 
 ![Add file: Upload](h2_kuvat/h2_4.png) ![Add file: Upload](h2_kuvat/h2_5.png)
 
-## d) Herra-orja verkossa 16:
+## d) Herra-orja verkossa 17:10-
 Tehtävässä teen herra-orja -verkon näille kahdelle äskön luodulle virtuaalikoneelle. Apuna käytän Tero Karvisen artikkelia https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux.
+Aloitetaan tekemällä t001 koneesta master. Avataan yllä kuvatulla tavalla ssh yhteys t001 koneeseen, jonka jälkeen masterin asennus. Tämän jälkeen kirjaudutaan ssh:lla t002 koneelle, ja tehdään siitä minion. Sen jälkeen kirjataan masterin tiedot minionille, ja hyväksytään avain. Lopuksi testataan että yhteys pelittää komentamalla orjaa.
 
+    vagrant ssh t001
+    sudo apt-get install -y salt-master
+    hostname -I # palautuvaa IP-osoitetta tarvitaan minionille
+
+Tämän jälkeen https://terokarvinen.com/palvelinten-hallinta/#h1-viisikko tehtävän vinkeissä ollut koodin hakemiston luomiseksi
+
+    sudo mkdir -p /etc/apt/keyrings
+    sudo curl -fsSL -o /etc/apt/keyrings/salt-archive-keyring-2023.gpg https://repo.saltproject.io/salt/py3/debian/12/amd64/SALT-PROJECT-GPG-PUBKEY-2023.gpg
+
+Tässä kohtaa tulee virheilmoitus `sudo: curl: command not found`. Etsiskelin virheen syytä, ja näyttäisi siltä, että minulla ei ole curlia asennettuna tähän koneeseen (https://www.tecmint.com/bash-curl-command-not-found-error/). Tarkistin vielä `curl --version`, ja saan virheen "-bash: cuel: command not found". Tämä vahvistaa aavistukseni.
+Asennetaan curl ja jatketaan.
+
+    sudo apt-get install curl
+    sudo curl -fsSL -o /etc/apt/keyrings/salt-archive-keyring-2023.gpg https://repo.saltproject.io/salt/py3/debian/12/amd64/SALT-PROJECT-GPG-PUBKEY-2023.gpg
+    echo "deb [signed-by=/etc/apt/keyrings/salt-archive-keyring-2023.gpg arch=amd64] https://repo.saltproject.io/salt/py3/debian/12/amd64/latest bookworm main" | sudo tee /etc/apt/sources.list.d/salt.list
+
+Tässä kohtaa saan virheilmoituksen `curl: (6) Could not resolve host: repo.saltproject.io` Eli homma tyssää. Kokeilin samat toimet minion -koneeseen, siellä sama juttu.
+Yritys korjata tilanne
+`sudo apt-get -y dist-upgrade` päivitellään. Ei auta
+`sudo systemctl enable salt-minion` "käynnistellään". Virheeksi tulee "Failed to enable unit: Unit file salt-minion.service does not exist"
+`sudo systemctl restart salt-minion` Virheenä "Failed to restart salt-minion.service: Unit salt-minion.service not found."
+
+Eli pakettia ei ole asennettu. Sitten uudestaan asennusyritys
+`sudo apt-get -y install salt-minion` ja saan seuraavan virheen
+
+    Note, selecting 'open-vm-tools-salt-minion' for regex 'salt.minion'
+    Some packages could not be installed. This may mean that you have
+    requested an impossible situation or if you are using the unstable
+    distribution that some required packages have not yet been created
+    or been moved out of Incoming.
+    The following information may help to resolve the situation:
+
+    The following packages have unmet dependencies:
+    open-vm-tools-salt-minion : Depends: open-vm-tools (= 2:12.2.0-1+deb12u2~bpo11+1) but 2:11.2.5-2+deb11u3 is to be installed
+    E: Unable to correct problems, you have held broken packages.
 
 
 ## Lähteet
