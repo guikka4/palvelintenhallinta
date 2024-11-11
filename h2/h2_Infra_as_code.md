@@ -162,7 +162,7 @@ Tämän jälkeen onnistui asennus salt-masterille
 Suljin ssh yhteyden `exit` ja toistin samat toimenpiteet t002 koneelle, mutta asensin salt-minionin.
 Seuraavaksi lisäsin `sudoedit /etc/salt/minion` tiedostoon masterin osoitteen, jotta tämä minion-kone voisi ottaa sinne yhteyttä.
 
-tähän h2_9
+![Add file: Upload](h2_kuvat/h2_9.png)
 
 Sen jälkeen `sudo systemctl restart salt-minion` demonin uudelleenkäynnistykseksi, ja jotta saan masterille avaimen.
 Sen jälkeen menin master koneelle, hyväksyin avaimen ja kokeilin komentoja.
@@ -185,7 +185,7 @@ Tämän jälkeen testiä. Sain alla olevasta komennosta virheilmoituksen...
     
 Sen jälkeen pientä googlausta, ja artikkeli https://stackoverflow.com/questions/35458952/salt-minion-returns-no-response-after-being-accepted. Olin jo kokeillut restart komentoja sekä masterille että minionille. Tästä innoittuneena ajoin komennon `systemctl status salt-minion`. Koska tulos näytti, että siellä on yksi "failed" aktiivisessa statuksessa, ajoin start komennon `sudo systemctl start salt-minion`.
 
-tähän h2_10
+![Add file: Upload](h2_kuvat/h2_10.png)
 
 Homma ei pelitä vieläkään, joten vianselvitystä.
 
@@ -196,7 +196,7 @@ Homma ei pelitä vieläkään, joten vianselvitystä.
 
 Ajoin minionilla komennon `salt-call -l debug state.apply` saadakseni tietoa mikä menee pieleen. Vastauksesta päätellen kyse voisikin olla käyttöoikeuksista.
 
-tähän h1_11
+![Add file: Upload](h2_kuvat/h2_11.png)
 
 ## Lähteet
 - https://askubuntu.com/questions/1232829/ubuntu-18-04-open-vm-tools-broken-package. Luettavissa 7.11.2024
