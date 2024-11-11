@@ -162,14 +162,26 @@ Tämän jälkeen onnistui asennus salt-masterille
 Suljin ssh yhteyden `exit` ja toistin samat toimenpiteet t002 koneelle, mutta asensin salt-minionin.
 Seuraavaksi lisäsin `sudoedit /etc/salt/minion` tiedostoon masterin osoitteen, jotta tämä minion-kone voisi ottaa sinne yhteyttä.
 
-tähän h2_8
+tähän h2_9
 
 Sen jälkeen `sudo systemctl restart salt-minion` demonin uudelleenkäynnistykseksi, ja jotta saan masterille avaimen.
-Sen jälkeen menin master koneelle, hyväksyin avaimen ja kokeilin komentoja. Avaimen hyväksyntä kuvattuna 
+Sen jälkeen menin master koneelle, hyväksyin avaimen ja kokeilin komentoja.
 
+Avaimen hyväksyntä masterilla: katsoin avaimet, hyväksyin tulevat pyynnöt
 
+    sudo salt-key --list all
+    sudo salt-key -A
 
+Tämän jälkeen testiä. Sain alla olevasta komennosta virheilmoituksen... 
 
+    sudo salt '*' cmd.run 'whoami'
+
+    t002:
+    Minion did not return. [No response]
+    The minions may not have all finished running and any remaining minions will return upon completion. To look up the return data for this job later, run the following command:
+
+    salt-run jobs.lookup_jid 20241111164751905007
+    ERROR: Minions returned with non-zero exit code
 
 
 ## Lähteet
