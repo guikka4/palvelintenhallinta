@@ -182,14 +182,30 @@ Tämän jälkeen testiä. Sain alla olevasta komennosta virheilmoituksen...
 
     salt-run jobs.lookup_jid 20241111164751905007
     ERROR: Minions returned with non-zero exit code
+    
+Sen jälkeen pientä googlausta, ja artikkeli https://stackoverflow.com/questions/35458952/salt-minion-returns-no-response-after-being-accepted. Olin jo kokeillut restart komentoja sekä masterille että minionille. Tästä innoittuneena ajoin komennon `systemctl status salt-minion`. Koska tulos näytti, että siellä on yksi "failed" aktiivisessa statuksessa, ajoin start komennon `sudo systemctl start salt-minion`.
 
+tähän h2_10
+
+Homma ei pelitä vieläkään, joten vianselvitystä.
+
+    nc -v -z salt.master.ip.addr 4505
+    nc -v -z salt.master.ip.addr 4506
+    
+    salt.master.ip.addr: forward host lookup failed: Unknown host
+
+Ajoin minionilla komennon `salt-call -l debug state.apply` saadakseni tietoa mikä menee pieleen. Vastauksesta päätellen kyse voisikin olla käyttöoikeuksista.
+
+tähän h1_11
 
 ## Lähteet
 - https://askubuntu.com/questions/1232829/ubuntu-18-04-open-vm-tools-broken-package. Luettavissa 7.11.2024
-  https://docs.vmware.com/en/VMware-Tools/12.4.0/com.vmware.vsphere.vmwaretools.doc/GUID-C48E1F14-240D-4DD1-8D4C-25B6EBE4BB0F.html. Luettavissa 7.11.2024
+- https://docs.vmware.com/en/VMware-Tools/12.4.0/com.vmware.vsphere.vmwaretools.doc/GUID-C48E1F14-240D-4DD1-8D4C-25B6EBE4BB0F.html. Luettavissa 7.11.2024
 - Hartikainen, P. 2024. https://github.com/guikka4/palvelintenhallinta/blob/main/h1/h1_Viisikko.md. Luettavissa 7.11.2024
 - Karvinen, T. 2021. https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/. Luettavissa 7.11.2024
 - Karvinen, T. 2023. https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file. Luettavissa 7.11.2024
 - Karvinen, T. 2024. https://terokarvinen.com/2024/hello-salt-infra-as-code/.Luettavissa 7.11.2024
 - Saltproject. https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml. Luettavissa 7.11.2024
+- Saltproject. MINION EI VASTAA. https://docs.saltproject.io/en/latest/topics/troubleshooting/minion.html. Luettavissa 11.11.2024
 - Saltproject. UUDET HAKEMISTO-OHJEET. https://saltproject.io/blog/salt-project-package-repo-migration-and-guidance/. Luettavissa 11.11.2024
+- Stackoverflow. Minionit ei vastaa. https://stackoverflow.com/questions/35458952/salt-minion-returns-no-response-after-being-accepted. Luettavissa 11.11.2024
