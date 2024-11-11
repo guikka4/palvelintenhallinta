@@ -1,4 +1,4 @@
-# h2 Infra as code 7.11.2024 14:50-18:20
+# h2 Infra as code 7.11.2024 14:50-18:20, 11.11.2024 11:30-13:00, 17:30-
 Tämä on palvelinten hallinta -kurssin toisen viikkotehtävän raportti. Raportti koostuu kuudesta tehtävästä (x-i) ja niiden ratkaisuista. Tehtävänanto löytyy https://terokarvinen.com/palvelinten-hallinta/#h2-infra-as-code. Työskentely tapahtuu kotona omalla kannettavalla, joka on kevyeen pelikäyttöön tarkoitettu. Käyttöjärjestelmänä Windows 11 Home, ja tehtävien tekemiseen VirtualBoxin kautta asennettu Linux Debian Bookworm. Vagrant tehtäviin käytössä Windowsin komentorivi.
 
 ## x) Lue ja tiivistä
@@ -81,7 +81,7 @@ Yhteyden tarkistus. Menen ensin sisälle t001 koneeseen ssh:lla, ja pingaan siel
 
 ![Add file: Upload](h2_kuvat/h2_4.png) ![Add file: Upload](h2_kuvat/h2_5.png)
 
-## d) Herra-orja verkossa 17:10-18:20
+## d) Herra-orja verkossa 7.11.2024 17:10-18:20
 Tehtävässä teen herra-orja -verkon näille kahdelle äskön luodulle virtuaalikoneelle. Apuna käytän Tero Karvisen artikkelia https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux.
 Aloitetaan tekemällä t001 koneesta master. Avataan yllä kuvatulla tavalla ssh yhteys t001 koneeseen, jonka jälkeen masterin asennus. Tämän jälkeen kirjaudutaan ssh:lla t002 koneelle, ja tehdään siitä minion. Sen jälkeen kirjataan masterin tiedot minionille, ja hyväksytään avain. Lopuksi testataan että yhteys pelittää komentamalla orjaa.
 
@@ -134,9 +134,32 @@ Kokeillaan asentaa (https://docs.vmware.com/en/VMware-Tools/12.4.0/com.vmware.vs
 
 Uusi kokeilu salt komennoilla. Ei toimi, salt-minionia asentaessa tulee edelleen virhe "Unable to locate package salt-minion". Nyt loppui tietotaito ja ymmärrys.
 
+### Homma jatkuu d. kohdasta 11.11.2024 11:30-13:00
+Ensimmäisen kerran uutta yritystä. Poistin Vagrantilla luodut koneet, tein uudet. Kokeilin kaikki aiemmin tehdyt vaiheet uudelleen. Ei toimi. Poistan koneet, yritän uudestaan. Ainakin Vagrantin käyttöön tulee kivaa kokemusta. Luovutan klo 13.
 
+### Homma jatkuu d. kohdasta 11.11.2024 17:30
+Uudella innolla homman kimppuun. Lähtötilanne: Ei tehtyjä virtuaalikoneita. Onnistuin seuraavien vaiheiden avulla asentamaan vihdoin viimein salt-masterin ja salt-minionin Vagrantilla luoduille kahdelle koneelle, jotka ovat tässäkin t001 (tuleva master) ja t002 (tuleva minion). Ohjeet saltin hakemiston luontiin ovat vanhentuneet, kehittäjältä on tullut uudet ohjeet (https://saltproject.io/blog/salt-project-package-repo-migration-and-guidance/). Alla käyty vaiheittain asennusvaiheet. Vagrantfile on sama kuin ennen, muutin vain kohtaa, jossa on `config.vm.box = "debian/bullseye64"` -> `config.vm.box = "debian/bookworm64"`.
 
+Kiinnitin eniten huomiota toimimattomuudessa tällä kertaa siihen, että hakemiston luontiin käytettävä repo.saltproject.io ei vastannut curlilla. Aikani googlattuani virhettä `curl: (6) Could not resolve host: repo.saltproject.io`, löysin sitten artikkelin jossa oli uudet ohjeet.
 
+    vagrant up
+    vagrant ssh t001
+    
+    sudo apt-get update
+    sudo apt-get -y dist-upgrade
+
+Sitten hakemiston luonti, ja uudet komennot yllä mainitusta lähteestä.
+
+    sudo mkdir -p /etc/apt/keyrings
+    sudo curl -fsSL https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public | sudo tee /etc/apt/keyrings/salt-archive-keyring-2023.pgp
+    echo "deb [signed-by=/etc/apt/keyrings/salt-archive-keyring-2023.pgp arch=amd64] https://packages.broadcom.com/artifactory/saltproject-deb/ stable main" | sudo tee /etc/apt/sources.list.d/salt.list
+
+Tämän jälkeen onnistui asennus salt-masterille
+
+    sudo apt-get update
+    sudo apt-get install salt-master
+    
+Suljin ssh yhteyden `exit` ja toistin samat toimenpiteet t002 koneelle, mutta asensin salt-minionin.
 
 
 ## Lähteet
@@ -147,3 +170,4 @@ Uusi kokeilu salt komennoilla. Ei toimi, salt-minionia asentaessa tulee edelleen
 - Karvinen, T. 2023. https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file. Luettavissa 7.11.2024
 - Karvinen, T. 2024. https://terokarvinen.com/2024/hello-salt-infra-as-code/.Luettavissa 7.11.2024
 - Saltproject. https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml. Luettavissa 7.11.2024
+- Saltproject. UUDET HAKEMISTO-OHJEET. https://saltproject.io/blog/salt-project-package-repo-migration-and-guidance/. Luettavissa 11.11.2024
