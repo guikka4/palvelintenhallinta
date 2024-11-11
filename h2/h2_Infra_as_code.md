@@ -137,7 +137,7 @@ Uusi kokeilu salt komennoilla. Ei toimi, salt-minionia asentaessa tulee edelleen
 ### Homma jatkuu d. kohdasta 11.11.2024 11:30-13:00
 Ensimmäisen kerran uutta yritystä. Poistin Vagrantilla luodut koneet, tein uudet. Kokeilin kaikki aiemmin tehdyt vaiheet uudelleen. Ei toimi. Poistan koneet, yritän uudestaan. Ainakin Vagrantin käyttöön tulee kivaa kokemusta. Luovutan klo 13.
 
-### Homma jatkuu d. kohdasta 11.11.2024 17:30
+### Homma jatkuu d. kohdasta 11.11.2024 17:30-20:30
 Uudella innolla homman kimppuun. Lähtötilanne: Ei tehtyjä virtuaalikoneita. Onnistuin seuraavien vaiheiden avulla asentamaan vihdoin viimein salt-masterin ja salt-minionin Vagrantilla luoduille kahdelle koneelle, jotka ovat tässäkin t001 (tuleva master) ja t002 (tuleva minion). Ohjeet saltin hakemiston luontiin ovat vanhentuneet, kehittäjältä on tullut uudet ohjeet (https://saltproject.io/blog/salt-project-package-repo-migration-and-guidance/). Alla käyty vaiheittain asennusvaiheet. Vagrantfile on sama kuin ennen, muutin vain kohtaa, jossa on `config.vm.box = "debian/bullseye64"` -> `config.vm.box = "debian/bookworm64"`.
 
 Kiinnitin eniten huomiota toimimattomuudessa tällä kertaa siihen, että hakemiston luontiin käytettävä repo.saltproject.io ei vastannut curlilla. Aikani googlattuani virhettä `curl: (6) Could not resolve host: repo.saltproject.io`, löysin sitten artikkelin jossa oli uudet ohjeet.
@@ -194,9 +194,11 @@ Homma ei pelitä vieläkään, joten vianselvitystä.
     
     salt.master.ip.addr: forward host lookup failed: Unknown host
 
-Ajoin minionilla komennon `salt-call -l debug state.apply` saadakseni tietoa mikä menee pieleen. Vastauksesta päätellen kyse voisikin olla käyttöoikeuksista.
+Ajoin minionilla komennon `salt-call -l debug state.apply` saadakseni tietoa mikä menee pieleen. Vastauksesta päätellen kyse voisikin olla käyttöoikeuksista. Minionilla saa yhteyden master koneeseen `ping` komentoa käyttämällä, joten yhteys on on-line kuitenkin, vian on pakko olla Salt:n puolella. Tai siellä palomuurissa? Tai jossain.
 
 ![Add file: Upload](h2_kuvat/h2_11.png)
+
+
 
 ## Lähteet
 - https://askubuntu.com/questions/1232829/ubuntu-18-04-open-vm-tools-broken-package. Luettavissa 7.11.2024
