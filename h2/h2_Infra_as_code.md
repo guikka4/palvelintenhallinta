@@ -124,13 +124,13 @@ Eli pakettia ei ole asennettu. Sitten uudestaan asennusyritys
 Ymmärrän sen verran lontoota, että tässä kohtaa ei jotkun asennellut versiot jostain kohtaa (huom viimeinen kappale virheilmoituksessa). Kokeillaan vielä paria juttua.
 `apt-cache policy open-vm-tools-desktop open-vm-tools` kertoo virheessä olevien open-vm-toolsien puuttuvan. https://askubuntu.com/questions/1232829/ubuntu-18-04-open-vm-tools-broken-package löytyy käytetty komento.
 
-tyähän h2_6
+![Add file: Upload](h2_kuvat/h2_6.png)
 
 Kokeillaan asentaa (https://docs.vmware.com/en/VMware-Tools/12.4.0/com.vmware.vsphere.vmwaretools.doc/GUID-C48E1F14-240D-4DD1-8D4C-25B6EBE4BB0F.html) ja sen jälkeen uudestaan katsotaan vm-toolsien asentuminen
     sudo apt-get install open-vm-tools
     apt-cache policy open-vm-tools-desktop open-vm-tools
 
-Tähän kuva h2_7
+![Add file: Upload](h2_kuvat/h2_7.png)
 
 Uusi kokeilu salt komennoilla. Ei toimi, salt-minionia asentaessa tulee edelleen virhe "Unable to locate package salt-minion". Nyt loppui tietotaito ja ymmärrys.
 
