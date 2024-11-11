@@ -160,6 +160,13 @@ Tämän jälkeen onnistui asennus salt-masterille
     sudo apt-get install salt-master
     
 Suljin ssh yhteyden `exit` ja toistin samat toimenpiteet t002 koneelle, mutta asensin salt-minionin.
+Seuraavaksi lisäsin `sudoedit /etc/salt/minion` tiedostoon masterin osoitteen, jotta tämä minion-kone voisi ottaa sinne yhteyttä. 
+Sen jälkeen `sudo systemctl restart salt-minion` demonin uudelleenkäynnistykseksi, ja jotta saan masterille avaimen.
+Sen jälkeen menin master koneelle ja kokeilin komentoja.
+
+tähän h2_8
+
+
 
 
 ## Lähteet
