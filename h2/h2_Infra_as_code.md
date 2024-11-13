@@ -240,7 +240,7 @@ luo moduuli(kansio) uudelle salt projektille, luo init.sls tiedosto projektin ka
 
 ![Add file: Upload](h2_kuvat/h2_15.png)
 
-## g) Kahden tilafunktion sls -tiedosto 13.11.2024 20:15-
+## g) Kahden tilafunktion sls -tiedosto 13.11.2024 20:15-22:00
 Tehtävässä teen pkg ja user funktioilla orjalle apache2 -asennuksen, micro asennuksen sekä uuden käyttäjän. Teen sitä varten uuden moduulin, ja ajan state.apply komennolla tilat orjakoneelle. Lopuksi osoitan idempotentin. Vinkit user.present-kontekstiin https://docs.saltproject.io/en/latest/topics/tutorials/states_pt3.html
 
     sudo mkdir -p /srv/salt/userapache1
@@ -258,8 +258,55 @@ Tehtävässä teen pkg ja user funktioilla orjalle apache2 -asennuksen, micro as
 
     sudo salt 't002' state.apply userapache1
 
-Koska tila sisälsi pakettien asennusta, meni siihen yllättävän kauan näillä perunoilla (5min). Ensi kerralla muistan ajaa komennon debug ominaisuudella: `sudo salt 't002' -l debug state.apply userapache1` jotta näen, missä vaiheessa homma etenee..
+Koska tila sisälsi pakettien asennusta, meni siihen yllättävän kauan näillä perunoilla. Ensi kerralla muistan ajaa komennon debug ominaisuudella: `sudo salt 't002' -l debug state.apply userapache1` jotta näen, missä vaiheessa homma etenee.. kello 22:00 suoritan localina toisella virtuaalikoneella tämän.
 
+    sudo mkdir -p /srv/salt/2modulia
+    cd /srv/salt/2modulia
+    sudoedit init.sls
+
+    micro:
+      pkg.installed
+
+    testiuser:
+      user.present
+
+    sudo salt-call --local -l debug state.apply 2modulia
+
+ajelin muutaman kerran, ja idempotentti näkyvissä
+
+tähän h2_16
+
+## h) Top file 13.11.2024 22:05-
+Top file-tehtävässä teen top.sls tiedoston Salt-hakemiston juureen. Jatkan työskentelyä toisella kuin vagrantilla tehdyllä koneella, koska se peruna ei ole vieläkään asentanut pakettejaan....
+top.sls tiedostossa oleva hello-moduuli on aiemmin, edellisellä oppitunnilla tehty moduuli. Ajelen vielä lopuksi pari kertaa, jotta idempotenssi tulee näytetyksi.
+
+    Hello-moduuli
+    /tmp/test1:
+      file.managed
+
+    /tmp/test2:
+      file.managed
+
+    tree:
+      pkg.installed
+
+    cowsay:
+      pkg.installed
+      
+    Top-tiedosto
+    cd /srv/salt/
+    sudoedit top.sls
+
+    base:
+      '*':
+        - hello
+        - 2modulia
+
+    sudo salt-call --local -l debug state.apply
+
+Jokaisessa tilassa tulee maininta `Changes: `, jokainen succeeded, 0 failed.
+
+h_17
 
 ## Lähteet
 - https://askubuntu.com/questions/1232829/ubuntu-18-04-open-vm-tools-broken-package. Luettavissa 7.11.2024
