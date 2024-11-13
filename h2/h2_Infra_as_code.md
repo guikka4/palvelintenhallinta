@@ -218,10 +218,10 @@ Ajoin komennon
 
 ![Add file: Upload](h2_kuvat/h2_12.png)
 
-## e) Hei infrakoodi! 13.11.2024 19:45-
+## e) Hei infrakoodi! 13.11.2024 19:45-20:00
 Tehtävässä on tarkoitus tehdä lokaalisti .sls tiedostojen kautta ajoja. Luon /tmp kansioon uuden tiedoston demonstroimallani tavalla.
 
-luo moduuli(kansio) uudelle salt projektille, luo init.sls tiedosto projektin kansioon, kirjoita koodi tiedostoon, testaa lokaalisti
+luo moduuli(kansio) uudelle salt projektille, luo init.sls tiedosto projektin kansioon, kirjoita koodi tiedostoon, testaa lokaalisti. Vinkit https://terokarvinen.com/2024/hello-salt-infra-as-code/
 
 
     sudo mkdir -p /srv/salt/filemodule1
@@ -234,7 +234,29 @@ luo moduuli(kansio) uudelle salt projektille, luo init.sls tiedosto projektin ka
     sudo salt-call --local state.apply filemodule1
 
 tähän h2_14
-    
+
+## f) Ajo verkon yli 13.11.2024 20:05-20:10
+    sudo salt '*' state.apply filemodule1
+
+tähän h2_15
+
+## g) Kahden tilafunktion sls -tiedosto 13.11.2024 20:15-
+Tehtävässä teen pkg ja user funktioilla orjalle apache2 -asennuksen, micro asennuksen sekä uuden käyttäjän. Teen sitä varten uuden moduulin, ja ajan state.apply komennolla tilat orjakoneelle. Lopuksi osoitan idempotentin. Vinkit user.present-kontekstiin https://docs.saltproject.io/en/latest/topics/tutorials/states_pt3.html
+
+    sudo mkdir -p /srv/salt/userapache1
+    cd userapache1/
+    sudoedit init.sls
+
+    apache2:
+      pkg.installed
+
+    micro:
+      pkg.installed
+
+    apachekayttaja:
+      user.present
+
+
 
 ## Lähteet
 - https://askubuntu.com/questions/1232829/ubuntu-18-04-open-vm-tools-broken-package. Luettavissa 7.11.2024
@@ -244,6 +266,7 @@ tähän h2_14
 - Karvinen, T. 2023. https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file. Luettavissa 7.11.2024
 - Karvinen, T. 2024. https://terokarvinen.com/2024/hello-salt-infra-as-code/.Luettavissa 7.11.2024
 - Saltproject. https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml. Luettavissa 7.11.2024
+- Saltproject. https://docs.saltproject.io/en/latest/topics/tutorials/states_pt3.html. Luettavissa 13.11.2024
 - Saltproject. MINION EI VASTAA. https://docs.saltproject.io/en/latest/topics/troubleshooting/minion.html. Luettavissa 11.11.2024
 - Saltproject. UUDET HAKEMISTO-OHJEET. https://saltproject.io/blog/salt-project-package-repo-migration-and-guidance/. Luettavissa 11.11.2024
 - Stackoverflow. Minionit ei vastaa. https://stackoverflow.com/questions/35458952/salt-minion-returns-no-response-after-being-accepted. Luettavissa 11.11.2024
