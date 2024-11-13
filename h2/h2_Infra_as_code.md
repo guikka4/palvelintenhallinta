@@ -210,12 +210,13 @@ Koska aina pitää yrittää uudestaan, yritin. Ja sain toimimaan. Kyselin ChatG
 
 Vastaukseksi sain muutamia vaihtoehtoja, joista tartuin "poista ipv6 saltin käytöstä". Tähän tarkoitukseen menin minionilla config tiedostoon ja poistin kommenttimerkin "ipv6: False" kohdasta. Sen jälkeen demonien uudelleen käynnistys ja homma toimi!
 
-tähän h2_13
+![Add file: Upload](h2_kuvat/h2_13.png)
 
 Ajoin komennon
 
     sudo salt '*' cmd.run 'whoami'
 
+![Add file: Upload](h2_kuvat/h2_12.png)
 
 
 
