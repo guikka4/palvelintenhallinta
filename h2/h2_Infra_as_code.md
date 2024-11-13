@@ -225,6 +225,7 @@ Tehtävässä on tarkoitus tehdä lokaalisti .sls tiedostojen kautta ajoja. Luon
 - kirjoita koodi tiedostoon
 - testaa lokaalisti
 
+
     sudo mkdir -p /srv/salt/filemodule1
     cd /srv/salt/filemodule1
     sudoedit init.sls
