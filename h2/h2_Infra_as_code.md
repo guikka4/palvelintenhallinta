@@ -220,10 +220,8 @@ Ajoin komennon
 
 ## e) Hei infrakoodi! 13.11.2024 19:45-
 Tehtävässä on tarkoitus tehdä lokaalisti .sls tiedostojen kautta ajoja. Luon /tmp kansioon uuden tiedoston demonstroimallani tavalla.
-- luo moduuli(kansio) uudelle salt projektille
-- luo init.sls tiedosto projektin kansioon
-- kirjoita koodi tiedostoon
-- testaa lokaalisti
+
+luo moduuli(kansio) uudelle salt projektille, luo init.sls tiedosto projektin kansioon, kirjoita koodi tiedostoon, testaa lokaalisti
 
 
     sudo mkdir -p /srv/salt/filemodule1
