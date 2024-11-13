@@ -205,8 +205,8 @@ Ajoin minionilla komennon `salt-call -l debug state.apply` saadakseni tietoa mik
 Kokeilin poistaa koneet, aloitin alusta, ei toimi edelleenkään. Palautus tässä kohtaa, katsellaan myöhemmin josko saisin toimimaan ja loput tehtyä...
 ### PALAUTUS TEHTY KLO 10:30
 
-### UPDATE Homma jatkuu 13.11.2024 19:30
-Koska aina pitää yrittää uudestaan, yritin. Ja sain toimimaan. Kyselin ChatGPT:ltä kysymyksiä, viimeinen kysymykseni oli `"sain tällaisen virheen, mitähän se tarkoittaa?` Vastaus  `"Unable to find IPv6 record for "t001" causing a 0:00:10.039417 second timeout when rendering grains. Set the dns or /etc/hosts for IPv6 to clear this."`
+### UPDATE Homma jatkuu 13.11.2024 19:30-19:45
+Koska aina pitää yrittää uudestaan, yritin. Ja sain toimimaan. Kyselin ChatGPT:ltä kysymyksiä, viimeinen kysymykseni oli `"sain tällaisen virheen, mitähän se tarkoittaa?` Vastaus  `"Unable to find IPv6 record for "t001" causing a 0:00:10.039417 second timeout when rendering grains. Set the dns or /etc/hosts for IPv6 to clear this."` Tässä kohtaa olin jo tutkinut vaihtoehtoja, josko koneiden IP avaruudesta löytyisi ongelmia.
 
 Vastaukseksi sain muutamia vaihtoehtoja, joista tartuin "poista ipv6 saltin käytöstä". Tähän tarkoitukseen menin minionilla config tiedostoon ja poistin kommenttimerkin "ipv6: False" kohdasta. Sen jälkeen demonien uudelleen käynnistys ja homma toimi!
 
@@ -218,7 +218,24 @@ Ajoin komennon
 
 ![Add file: Upload](h2_kuvat/h2_12.png)
 
+## e) Hei infrakoodi! 13.11.2024 19:45-
+Tehtävässä on tarkoitus tehdä lokaalisti .sls tiedostojen kautta ajoja. Luon /tmp kansioon uuden tiedoston demonstroimallani tavalla.
+- luo moduuli(kansio) uudelle salt projektille
+- luo init.sls tiedosto projektin kansioon
+- kirjoita koodi tiedostoon
+- testaa lokaalisti
 
+    sudo mkdir -p /srv/salt/filemodule1
+    cd /srv/salt/filemodule1
+    sudoedit init.sls
+  
+    /tmp/hello:
+      file.managed
+
+    sudo salt-call --local state.apply filemodule1
+
+tähän h2_14
+    
 
 ## Lähteet
 - https://askubuntu.com/questions/1232829/ubuntu-18-04-open-vm-tools-broken-package. Luettavissa 7.11.2024
