@@ -1,7 +1,7 @@
 # h2 Infra as code 7.11.2024 14:50-18:20; 11.11.2024 11:30-13:00, 17:30-20:30; 13.11.2024 8:15-10:30
 Tämä on palvelinten hallinta -kurssin toisen viikkotehtävän raportti. Raportti koostuu kuudesta tehtävästä (x-i) ja niiden ratkaisuista. Tehtävänanto löytyy https://terokarvinen.com/palvelinten-hallinta/#h2-infra-as-code. Työskentely tapahtuu kotona omalla kannettavalla, joka on kevyeen pelikäyttöön tarkoitettu. Käyttöjärjestelmänä Windows 11 Home, ja tehtävien tekemiseen VirtualBoxin kautta asennettu Linux Debian Bookworm. Vagrant tehtäviin käytössä Windowsin komentorivi.
 
-### UPDATE 13.11.2024 19:30
+### UPDATE 13.11.2024 19:30-22:15
 homma jatkuu d kohdasta, sain toimimaan
 
 ## x) Lue ja tiivistä
@@ -274,9 +274,9 @@ Koska tila sisälsi pakettien asennusta, meni siihen yllättävän kauan näill�
 
 ajelin muutaman kerran, ja idempotentti näkyvissä
 
-tähän h2_16
+![Add file: Upload](h2_kuvat/h2_16.png)
 
-## h) Top file 13.11.2024 22:05-
+## h) Top file 13.11.2024 22:05-22:15
 Top file-tehtävässä teen top.sls tiedoston Salt-hakemiston juureen. Jatkan työskentelyä toisella kuin vagrantilla tehdyllä koneella, koska se peruna ei ole vieläkään asentanut pakettejaan....
 top.sls tiedostossa oleva hello-moduuli on aiemmin, edellisellä oppitunnilla tehty moduuli. Ajelen vielä lopuksi pari kertaa, jotta idempotenssi tulee näytetyksi.
 
@@ -306,7 +306,10 @@ top.sls tiedostossa oleva hello-moduuli on aiemmin, edellisellä oppitunnilla te
 
 Jokaisessa tilassa tulee maininta `Changes: `, jokainen succeeded, 0 failed.
 
-h_17
+![Add file: Upload](h2_kuvat/h2_17.png)
+
+## i) Vapaaehtoinen, Apachen asennus.
+Koska klo 22.15 perunakoneet edelleen asentelee paketteja, teen tämän taas myöhemmin.
 
 ## Lähteet
 - https://askubuntu.com/questions/1232829/ubuntu-18-04-open-vm-tools-broken-package. Luettavissa 7.11.2024
