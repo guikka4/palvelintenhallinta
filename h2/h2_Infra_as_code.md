@@ -1,6 +1,9 @@
 # h2 Infra as code 7.11.2024 14:50-18:20; 11.11.2024 11:30-13:00, 17:30-20:30; 13.11.2024 8:15-10:30
 Tämä on palvelinten hallinta -kurssin toisen viikkotehtävän raportti. Raportti koostuu kuudesta tehtävästä (x-i) ja niiden ratkaisuista. Tehtävänanto löytyy https://terokarvinen.com/palvelinten-hallinta/#h2-infra-as-code. Työskentely tapahtuu kotona omalla kannettavalla, joka on kevyeen pelikäyttöön tarkoitettu. Käyttöjärjestelmänä Windows 11 Home, ja tehtävien tekemiseen VirtualBoxin kautta asennettu Linux Debian Bookworm. Vagrant tehtäviin käytössä Windowsin komentorivi.
 
+### UPDATE 13.11.2024 19:30
+homma jatkuu d kohdasta, sain toimimaan
+
 ## x) Lue ja tiivistä
 Raportissa on tiivistetty artikkelien keskeiset sisällöt
 
@@ -200,6 +203,21 @@ Ajoin minionilla komennon `salt-call -l debug state.apply` saadakseni tietoa mik
 
 ### Homma jatkuu 13.11.2024 8:15-10:30
 Kokeilin poistaa koneet, aloitin alusta, ei toimi edelleenkään. Palautus tässä kohtaa, katsellaan myöhemmin josko saisin toimimaan ja loput tehtyä...
+### PALAUTUS TEHTY KLO 10:30
+
+### UPDATE Homma jatkuu 13.11.2024 19:30
+Koska aina pitää yrittää uudestaan, yritin. Ja sain toimimaan. Kyselin ChatGPT:ltä kysymyksiä, viimeinen kysymykseni oli `"sain tällaisen virheen, mitähän se tarkoittaa?` Vastaus  `"Unable to find IPv6 record for "t001" causing a 0:00:10.039417 second timeout when rendering grains. Set the dns or /etc/hosts for IPv6 to clear this."`
+
+Vastaukseksi sain muutamia vaihtoehtoja, joista tartuin "poista ipv6 saltin käytöstä". Tähän tarkoitukseen menin minionilla config tiedostoon ja poistin kommenttimerkin "ipv6: False" kohdasta. Sen jälkeen demonien uudelleen käynnistys ja homma toimi!
+
+tähän h2_13
+
+Ajoin komennon
+
+    sudo salt '*' cmd.run 'whoami'
+
+
+
 
 ## Lähteet
 - https://askubuntu.com/questions/1232829/ubuntu-18-04-open-vm-tools-broken-package. Luettavissa 7.11.2024
