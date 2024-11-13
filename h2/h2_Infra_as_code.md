@@ -233,12 +233,12 @@ luo moduuli(kansio) uudelle salt projektille, luo init.sls tiedosto projektin ka
 
     sudo salt-call --local state.apply filemodule1
 
-tähän h2_14
+![Add file: Upload](h2_kuvat/h2_14.png)
 
 ## f) Ajo verkon yli 13.11.2024 20:05-20:10
     sudo salt '*' state.apply filemodule1
 
-tähän h2_15
+![Add file: Upload](h2_kuvat/h2_15.png)
 
 ## g) Kahden tilafunktion sls -tiedosto 13.11.2024 20:15-
 Tehtävässä teen pkg ja user funktioilla orjalle apache2 -asennuksen, micro asennuksen sekä uuden käyttäjän. Teen sitä varten uuden moduulin, ja ajan state.apply komennolla tilat orjakoneelle. Lopuksi osoitan idempotentin. Vinkit user.present-kontekstiin https://docs.saltproject.io/en/latest/topics/tutorials/states_pt3.html
@@ -256,6 +256,9 @@ Tehtävässä teen pkg ja user funktioilla orjalle apache2 -asennuksen, micro as
     apachekayttaja:
       user.present
 
+    sudo salt 't002' state.apply userapache1
+
+Koska tila sisälsi pakettien asennusta, meni siihen yllättävän kauan näillä perunoilla (5min). Ensi kerralla muistan ajaa komennon debug ominaisuudella: `sudo salt 't002' -l debug state.apply userapache1` jotta näen, missä vaiheessa homma etenee..
 
 
 ## Lähteet
