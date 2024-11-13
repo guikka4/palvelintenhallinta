@@ -3,6 +3,9 @@ Tämä on palvelinten hallinta -kurssin toisen viikkotehtävän raportti. Raport
 
 ### UPDATE 13.11.2024 19:30-22:15
 homma jatkuu d kohdasta, sain toimimaan
+### UPDATE 13.11.2024 22:45
+Koska perunakoneet eivät suostuneet mitenkään toimimaan, ajelin vielä `sudo salt 't002' -l debug state.apply userapache1` (kts. kohta g->) ja kiinnitin huomiota virheeseen, jossa mainittiin DNS-palvelut. IP-osoitteilla pääsin internetiin käsiksi, mutta en esimerkiksi `nslookup google.com` komennolla.
+`ip route` näytti nimipalvelimen osoitteen. Kävin lisäämässä sen HostOS:n puolella virtuaalikoneiden ethernet-yhteyden nimipalvelimeksi (oli automaattinen). Johan toimi! Eli koneet eivät olleet perunoita, eivät vaan päässeet lataamaan paketteja ulkomaailmasta nimipalvelimien kautta. YES!
 
 ## x) Lue ja tiivistä
 Raportissa on tiivistetty artikkelien keskeiset sisällöt
