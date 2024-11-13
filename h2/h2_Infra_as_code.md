@@ -1,4 +1,4 @@
-# h2 Infra as code 7.11.2024 14:50-18:20, 11.11.2024 11:30-13:00, 17:30-20:30
+# h2 Infra as code 7.11.2024 14:50-18:20; 11.11.2024 11:30-13:00, 17:30-20:30; 13.11.2024 8:15-10:30
 Tämä on palvelinten hallinta -kurssin toisen viikkotehtävän raportti. Raportti koostuu kuudesta tehtävästä (x-i) ja niiden ratkaisuista. Tehtävänanto löytyy https://terokarvinen.com/palvelinten-hallinta/#h2-infra-as-code. Työskentely tapahtuu kotona omalla kannettavalla, joka on kevyeen pelikäyttöön tarkoitettu. Käyttöjärjestelmänä Windows 11 Home, ja tehtävien tekemiseen VirtualBoxin kautta asennettu Linux Debian Bookworm. Vagrant tehtäviin käytössä Windowsin komentorivi.
 
 ## x) Lue ja tiivistä
@@ -198,7 +198,8 @@ Ajoin minionilla komennon `salt-call -l debug state.apply` saadakseni tietoa mik
 
 ![Add file: Upload](h2_kuvat/h2_11.png)
 
-
+### Homma jatkuu 13.11.2024 8:15-10:30
+Kokeilin poistaa koneet, aloitin alusta, ei toimi edelleenkään. Palautus tässä kohtaa, katsellaan myöhemmin josko saisin toimimaan ja loput tehtyä...
 
 ## Lähteet
 - https://askubuntu.com/questions/1232829/ubuntu-18-04-open-vm-tools-broken-package. Luettavissa 7.11.2024
