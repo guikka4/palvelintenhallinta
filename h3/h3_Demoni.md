@@ -1,4 +1,4 @@
-# h3 Demoni 18.11.2024 
+# h3 Demoni 18.11.2024 18:15-
 Tämä on palvelinten hallinta -kurssin kolmannen viikkotehtävän raportti. Raportti koostuu viidestä tehtävästä (x-d) ja niiden ratkaisuista. Tehtävänanto löytyy https://terokarvinen.com/palvelinten-hallinta/#h3-demoni. Työskentely tapahtuu kotona omalla kannettavalla, joka on kevyeen pelikäyttöön tarkoitettu. Käyttöjärjestelmänä Windows 11 Home, ja tehtävien tekemiseen VirtualBoxin kautta asennettu Linux Debian Bookworm, jota operoin Windowsin komentoriviltä (vagrant ssh).
 
 ## x) Lue ja tiivistä
@@ -29,8 +29,28 @@ Raportissa on tiivistettynä artikkelien keskeisin sisältö
     - `service.enabled` varmistaa, että demoni on käytössä/saatavilla uudelleenkäynnistyksen jälkeen
 (`sudo salt-call --local sys.state_doc service`)
 
-## a) Apache easy mode 18.11.2024 
-Tehtävässä asennetaan Apace palvelin. Ensin asennus tehdään käsin, ja sen jälkeen automatisoidaan. Käytän tehtävän tekoon sls tiedostoa.
+## a) Apache easy mode 18.11.2024 18:15-
+Tehtävässä asennetaan Apache, korvataan testisivu sekä varmistutaan demonin käynnistymisestä.  Ensin asennus tehdään käsin, ja sen jälkeen automatisoidaan.
+Aloitetaan näyttämällä `dpkg -l | grep apache2` komennolla, että apachea ei ole vielä asennettu.  Sen jälkeen päivitykset, lataan paketin, korvaan testisivun sekä tarkistan palvelimen käynnissäolon.
+
+tähän h3_1
+
+    sudo apt-get update
+
+    sudo apt-get -y install apache2
+
+    curl localhost
+
+tähän h3_2
+curl näyttää tällä hetkellä apache:n oletus aloitussivun, josta curlin näkymä (testisivu on pitkä, kuvakaappauksessa näkyy, että se on apachen sivu). Nyt korvaan etusivulle lukemaan "Hello, This is apache test for studies".
+
+    echo "Hello, This is apache test for studies"|sudo tee /var/www/html/index.html
+
+    curl localhost
+
+tähän h3_3
+
+    
 
 
 ## Lähteet
