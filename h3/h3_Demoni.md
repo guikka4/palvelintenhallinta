@@ -79,7 +79,7 @@ ja aloitetaan automatisointi. Olemme siis tilanteessa, jossa apache2 demonia ei 
 
 ![Add file: Upload](h3_kuvat/h3_7.png)
 
-    sudoedit apache.sls
+    sudoedit init.sls
 
     apache2:
       pkg.installed
@@ -91,9 +91,28 @@ ja aloitetaan automatisointi. Olemme siis tilanteessa, jossa apache2 demonia ei 
     apache2.service:
       service.running
 
+Tämän jälkeen ajokomento, ja tulokset kuvakaappauksessa
+
+    sudo salt-call --local -l debug state.apply apachetest
+
+tähän h3_8
+Luulisin, että tuossa source -polussa on jotain väärin. Errorista päätellen. Muutetaan muotoon `salt://apache/test.conf` ja kokeillaan uudelleen
+
+    sudo salt-call --local -l debug state.apply apachetest
+
+Tulos on sama kuin edellisessä kuvassa. Luodaan test.conf tiedosto myöhemmässä vaiheessa. Nyt kokeillaan että apache on asentunut ja käynnissä, sekä korvataan etusivu.
+
+    sudo systemctl status apache2
+
+    curl localhost
+
+    echo "Hello, This is a second test with sls"|sudo tee /var/www/html/index.html
+
+    curl localhost
+
+tähän h3_9
 
 
-    
 
 
 ## Lähteet
