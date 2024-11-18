@@ -29,7 +29,7 @@ Raportissa on tiivistettynä artikkelien keskeisin sisältö
     - `service.enabled` varmistaa, että demoni on käytössä/saatavilla uudelleenkäynnistyksen jälkeen
 (`sudo salt-call --local sys.state_doc service`)
 
-## a) Apache easy mode 18.11.2024 18:15-
+## a) Apache easy mode 18.11.2024 18:15-19:30
 Tehtävässä asennetaan Apache, korvataan testisivu sekä varmistutaan demonin käynnistymisestä.  Ensin asennus tehdään käsin, ja sen jälkeen automatisoidaan.
 Aloitetaan näyttämällä `dpkg -l | grep apache2` komennolla, että apachea ei ole vielä asennettu.  Sen jälkeen päivitykset, lataan paketin, korvaan testisivun sekä tarkistan palvelimen käynnissäolon. Vinkit tehtävänannossa, sekä https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/.
 
@@ -95,12 +95,12 @@ Tämän jälkeen ajokomento, ja tulokset kuvakaappauksessa
 
     sudo salt-call --local -l debug state.apply apachetest
 
-tähän h3_8
+![Add file: Upload](h3_kuvat/h3_8.png)
 Luulisin, että tuossa source -polussa on jotain väärin. Errorista päätellen. Muutetaan muotoon `salt://apache/test.conf` ja kokeillaan uudelleen
 
     sudo salt-call --local -l debug state.apply apachetest
 
-Tulos on sama kuin edellisessä kuvassa. Luodaan test.conf tiedosto myöhemmässä vaiheessa. Nyt kokeillaan että apache on asentunut ja käynnissä, sekä korvataan etusivu.
+Tulos on sama kuin edellisessä kuvassa. Luulisin, että tuo test.conf tiedosto, mikä tuohon polkuun on mainittu, pitäisi tehdä tuonne moduulikansioon sekä osoittaa sourcella siihen. Luodaan test.conf tiedosto myöhemmässä vaiheessa. Nyt kokeillaan että apache on asentunut ja käynnissä, sekä korvataan etusivu.
 
     sudo systemctl status apache2
 
@@ -110,8 +110,10 @@ Tulos on sama kuin edellisessä kuvassa. Luodaan test.conf tiedosto myöhemmäss
 
     curl localhost
 
-tähän h3_9
+![Add file: Upload](h3_kuvat/h3_9.png)
 
+## b) SSHouto
+Tehtävässä lisätään uusi portti, jota SSH kuuntelee. Vinkit https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh.
 
 
 
