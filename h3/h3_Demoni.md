@@ -72,7 +72,25 @@ Viimeisin komento näytti, että apache2 paketti olisi asennettuna. Mutta onkoha
 
 ![Add file: Upload](h3_kuvat/h3_6.png)
 
-ja aloitetaan automatisointi
+ja aloitetaan automatisointi. Olemme siis tilanteessa, jossa apache2 demonia ei ole asennettuna sekä asetustiedostot puuttuvat. Tehdään salt moduuli (apachetest), jonne tehdään pkg-file-service mallinen tila. Ajetaan komento saltilla paikallisesti, ja testataan lopputulos. Vinkit https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh.
+
+    sudo mkdir -p /srv/salt/apachetest
+    cd /srv/salt/apachetest
+
+Tähän h3_7
+
+    sudoedit apache.sls
+
+    apache2:
+      pkg.installed
+
+    /etc/apache2/sites-available/test.conf:
+      file.managed:
+        - source: "salt://apachetest/test.conf"
+        
+    apache2.service:
+      service.running
+
 
 
     
