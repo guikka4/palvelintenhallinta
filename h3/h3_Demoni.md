@@ -112,8 +112,27 @@ Tulos on sama kuin edellisessä kuvassa. Luulisin, että tuo test.conf tiedosto,
 
 ![Add file: Upload](h3_kuvat/h3_9.png)
 
-## b) SSHouto
+## b) SSHouto 18.11.2024 19:50-
 Tehtävässä lisätään uusi portti, jota SSH kuuntelee. Vinkit https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh.
+
+SSH demoni löytyy jo valmiina, joten muokataan ensin sshd_config tiedostoa ja lisätään portti 8800 sinne.
+
+    sudoedit /etc/ssh/sshd_config
+
+tähän h3_10
+
+Luodaan ssh moduulikansio, johon kopioin sshd konffitiedostosta kommenttikentättömät ja rivivälittömät tekstit `cat sshd_config | grep -v '^#' | grep -v '^$'` komennolla saan ne tulostettua komentoriville
+
+    sudo mkdir -p /srv/salt/ssh/
+    cd /srv/salt/ssh/
+
+    sudoedit sshd_config
+
+    kopioin tänne aiemmat
+
+tähän h3_11
+
+Tämän jälkeen teen moduulin sls tiedoston, johon pkg-file-service tulee.
 
 
 
