@@ -56,7 +56,7 @@ Tällä hetkellä olemme tilanteessa, jossa apache2 palvelin on asennettuna, sek
     
     sudo systemctl status apache2
 
-tähän h3_5 tähän h3_4
+![Add file: Upload](h3_kuvat/h3_5.png) ![Add file: Upload](h3_kuvat/h3_4.png)
 
 poistetaan apache2 paketti käyttämällä purge komentoa. Se poistaa myös asetustiedostot (remove ei poista niitä, vaan pelkän asennuksen). Tsekataan vielä, että pakettia tai hakemistoja ei löydy
 
@@ -70,7 +70,7 @@ poistetaan apache2 paketti käyttämällä purge komentoa. Se poistaa myös aset
 
 Viimeisin komento näytti, että apache2 paketti olisi asennettuna. Mutta onkohan niin, että tämä komento näyttää kaikki paketit, jotka ovat olleet joskus asennettuna? Kokeilin vielä `sudo dpkg --purge apache2` komentoa, ja tulos oli se, että pakettia ei enää löydy.
 
-tähän h3_6
+![Add file: Upload](h3_kuvat/h3_6.png)
 
 ja aloitetaan automatisointi
 
