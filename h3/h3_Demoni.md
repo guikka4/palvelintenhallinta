@@ -112,7 +112,7 @@ Tulos on sama kuin edellisessä kuvassa. Luulisin, että tuo test.conf tiedosto,
 
 ![Add file: Upload](h3_kuvat/h3_9.png)
 
-## b) SSHouto 18.11.2024 19:50-
+## b) SSHouto 18.11.2024 19:50-20:30
 Tehtävässä lisätään uusi portti, jota SSH kuuntelee. Vinkit https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh.
 
 SSH demoni löytyy jo valmiina, joten muokataan ensin sshd_config tiedostoa ja lisätään portti 8800 sinne.
@@ -159,6 +159,8 @@ Lopputulos on toimiva. Alla kuvakaappaukset ensimmäisestä (2kuvaa, välissä p
 Tässä idempotenssi
 
 ![Add file: Upload](h3_kuvat/h3_14.png)
+
+## c) Oma moduuli
 
 ## Lähteet
 - Karvinen, T. 2018. Name Based Virtual Hosts on Apache. https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/. Luettavissa 18.11.2024
