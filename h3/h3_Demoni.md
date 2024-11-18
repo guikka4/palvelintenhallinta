@@ -77,7 +77,7 @@ ja aloitetaan automatisointi. Olemme siis tilanteessa, jossa apache2 demonia ei 
     sudo mkdir -p /srv/salt/apachetest
     cd /srv/salt/apachetest
 
-Tähän h3_7
+![Add file: Upload](h3_kuvat/h3_7.png)
 
     sudoedit apache.sls
 
