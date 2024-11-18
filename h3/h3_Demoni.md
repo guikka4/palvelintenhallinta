@@ -119,7 +119,7 @@ SSH demoni löytyy jo valmiina, joten muokataan ensin sshd_config tiedostoa ja l
 
     sudoedit /etc/ssh/sshd_config
 
-tähän h3_10
+![Add file: Upload](h3_kuvat/h3_10.png)
 
 Luodaan ssh moduulikansio, johon kopioin sshd konffitiedostosta kommenttikentättömät ja rivivälittömät tekstit `cat sshd_config | grep -v '^#' | grep -v '^$'` komennolla saan ne tulostettua komentoriville
 
@@ -130,7 +130,7 @@ Luodaan ssh moduulikansio, johon kopioin sshd konffitiedostosta kommenttikentät
 
     kopioin tänne aiemmat
 
-tähän h3_11
+![Add file: Upload](h3_kuvat/h3_11.png)
 
 Tämän jälkeen teen moduulin sls tiedoston, johon pkg-file-service tulee.
 
