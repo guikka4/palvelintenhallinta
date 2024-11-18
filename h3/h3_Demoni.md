@@ -134,6 +134,19 @@ Luodaan ssh moduulikansio, johon kopioin sshd konffitiedostosta kommenttikentät
 
 Tämän jälkeen teen moduulin sls tiedoston, johon pkg-file-service tulee.
 
+    sudoedit init.sls
+
+    ssh:
+      pkg.installed
+
+    /etc/ssh/sshd_config:
+      file.managed:
+        - source: "salt://ssh/sshd_config"
+
+    ssh.service:
+      service.running:
+        - watch:
+          - file: /etc/ssh/sshd_config
 
 
 ## Lähteet
