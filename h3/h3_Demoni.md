@@ -148,6 +148,17 @@ Tämän jälkeen teen moduulin sls tiedoston, johon pkg-file-service tulee.
         - watch:
           - file: /etc/ssh/sshd_config
 
+Ja kokeillaan
+
+    sudo salt-call --local -l debug state.apply ssh
+
+Lopputulos on toimiva. Alla kuvakaappaukset ensimmäisestä (2kuvaa, välissä pitkä liuta vihreää kommenttia joka karsittu pois), sekä idempotenssista.
+
+tähän h3_12 ha h3_13
+
+Tässä idempotenssi
+
+tähän h3_14
 
 ## Lähteet
 - Karvinen, T. 2018. Name Based Virtual Hosts on Apache. https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/. Luettavissa 18.11.2024
