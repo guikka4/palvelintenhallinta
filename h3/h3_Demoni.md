@@ -33,7 +33,7 @@ Raportissa on tiivistettynä artikkelien keskeisin sisältö
 Tehtävässä asennetaan Apache, korvataan testisivu sekä varmistutaan demonin käynnistymisestä.  Ensin asennus tehdään käsin, ja sen jälkeen automatisoidaan.
 Aloitetaan näyttämällä `dpkg -l | grep apache2` komennolla, että apachea ei ole vielä asennettu.  Sen jälkeen päivitykset, lataan paketin, korvaan testisivun sekä tarkistan palvelimen käynnissäolon.
 
-tähän h3_1
+![Add file: Upload](h2_kuvat/h3_1.png)
 
     sudo apt-get update
 
@@ -41,14 +41,14 @@ tähän h3_1
 
     curl localhost
 
-tähän h3_2
+![Add file: Upload](h2_kuvat/h3_2.png)
 curl näyttää tällä hetkellä apache:n oletus aloitussivun, josta curlin näkymä (testisivu on pitkä, kuvakaappauksessa näkyy, että se on apachen sivu). Nyt korvaan etusivulle lukemaan "Hello, This is apache test for studies".
 
     echo "Hello, This is apache test for studies"|sudo tee /var/www/html/index.html
 
     curl localhost
 
-tähän h3_3
+![Add file: Upload](h2_kuvat/h3_3.png)
 
     
 
