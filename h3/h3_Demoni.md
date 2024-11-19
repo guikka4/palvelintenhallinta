@@ -1,4 +1,4 @@
-# h3 Demoni 18.11.2024 18:15-20:30; 19.11.2024 19:10-20:55
+# h3 Demoni 18.11.2024 18:15-20:30; 19.11.2024 19:10-20:55; 20.11.2024 00:10-00:35
 Tämä on palvelinten hallinta -kurssin kolmannen viikkotehtävän raportti. Raportti koostuu viidestä tehtävästä (x-d) ja niiden ratkaisuista. Tehtävänanto löytyy https://terokarvinen.com/palvelinten-hallinta/#h3-demoni. Työskentely tapahtuu kotona omalla kannettavalla, joka on kevyeen pelikäyttöön tarkoitettu. Käyttöjärjestelmänä Windows 11 Home, ja tehtävien tekemiseen VirtualBoxin kautta asennettu Linux Debian Bookworm, jota operoin Windowsin komentoriviltä (vagrant ssh).
 
 ## x) Lue ja tiivistä
@@ -253,8 +253,44 @@ Jumitti, sekä master kaatui muutaman kerran. Kävi ilmi, että parent directory
 
 ![Add file: Upload](h3_kuvat/h3_20.png)
 
+UPDATE 20.11.2024 00:10-00:35
+Palasin pulman ääreen, ja otin selvää https://docs.saltproject.io/en/latest/ref/states/all/salt.states.file.html, miten saadaan luotua hakemistopolku. `file.managed` kohtaan tarvittiin `makedirs: True`.
+Katsoin myös, että `curl localhost` palauttaa edelleen apachen oletussivun. Lisäsin vielä watch säännön. Eli uusi init.sls tähän moduuliin
+
+    apacheuser:
+      user.present
+
+    /home/apacheuser/publicweb/index.html:
+      file.managed:
+        - source: "salt://apachetest/index.html"
+        - makedirs: True
+
+    apache2:
+      pkg.installed
+
+    /etc/apache2/sites-available/test.conf:
+      file.managed:
+        - source: "salt://apachetest/test.conf"
+
+    apache2.service:
+      service.running
+        - watch:
+          - file: /etc/apache2/sites-available/test.conf
+
+sen jälkeen `curl localhost` näytti minionilla edelleen apachen oletussivua. Kävin minion koneella tekemässä sivun käyttöönoton. Sitten vielä uusi testi sivustosta ja oli päivittynyt.
+
+    sudo a2dissite 000-default.conf
+    sudo a2ensite test.conf
+    sudo systemctl restart apache2
+
+    curl localhost
+
+tähän h3_21
+    
+
 ## Lähteet
 - Karvinen, T. 2018. Name Based Virtual Hosts on Apache. https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/. Luettavissa 18.11.2024
 - Karvinen, T. 2018. pkg-file-service. https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh. Luettavissa 18.11.2024
 - Karvinen, T. 2024. Tehtävänanto. https://terokarvinen.com/palvelinten-hallinta/#h3-demoni. Luettavissa 14.11.2024
 - Salt-tilojen ohjeet `sudo salt-call --local sys.state_doc <module>`
+- Saltproject. file.managed https://docs.saltproject.io/en/latest/ref/states/all/salt.states.file.html. Luettavissa 20.11.2024
