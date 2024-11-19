@@ -188,7 +188,7 @@ Tehtävässä on tarkoitus asentaa Apache tarjoamaan websivua localhostissa. Htm
 Tarkoituksenani on laittaa Saltilla masterilta orjalle moduuli, joka sisältää apachen asennuksen, käyttäjän luonnin, sekä apachen asetustiedostot. Samalla korvaantuisi kotisivu localhostiin.
 Aloitin tehtävän ottamalla orjakoneelta tämän hetkisen tilanteen. Apache2 on jo käynnissä, käyttäjät näkyvissä ja apachen testisivu näkyvissä localhostissa (kuvakaappaus alla).
 
-tähän h3_19
+![Add file: Upload](h3_kuvat/h3_19.png)
 
 Tässä vaiheessa on luotuna jo moduuli `apachetest` jota olen käyttänyt aiemmin. Muokkasin sen init.sls tiedostoa, loin apachen konffitiedoston moduulikansioon, sekä tein index.html tiedoston samaiseen sijaintiin `/srv/salt/apachetest`, jotta moduulin kaikki tiedostot menisivät minionille jakoon.
 
