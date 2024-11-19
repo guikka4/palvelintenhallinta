@@ -181,7 +181,7 @@ Tämän jälkeen uusi kokeilu `sudo salt '*' -l debug state.apply ssh` ja koment
 
 
 
-## d) VirtualHost 19.11.2024 20:05-
+## d) VirtualHost 19.11.2024 20:05-20:55
 
 Tehtävässä on tarkoitus asentaa Apache tarjoamaan websivua localhostissa. Html-tiedoston tulee olla jonkun käyttäjän kotihakemistossa ja muokattavissa ilman sudoa. Vinkit https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/?fromSearch=virtual%20host.
 
@@ -249,7 +249,9 @@ Tässä kohdassa on hyvä ajaa ja katsoa virheet
 
     sudo salt '*' -l debug state.apply apachetest
 
-Jumitti, sekä master kaatui muutaman kerran.
+Jumitti, sekä master kaatui muutaman kerran. Kävi ilmi, että parent directory ei ole olemassa index.html filun luonnille orjakoneelle. Tästä on hyvä jatkaa seuraavana päivänä.
+
+
 
 ## Lähteet
 - Karvinen, T. 2018. Name Based Virtual Hosts on Apache. https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/. Luettavissa 18.11.2024
