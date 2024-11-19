@@ -178,7 +178,9 @@ Tämän jälkeen uusi kokeilu `sudo salt '*' -l debug state.apply ssh` ja koment
 ![Add file: Upload](h3_kuvat/h3_17.png)
 
 ## c) Oma moduuli
+Tarkoituksena keksiä opituista asioista luokalle esiteltävä oma moduuli.
 
+Ideoin viimeistä kahta tehtävää tehdessäni, että olisi hienoa rakennella pieni virtuaaliympäristö, jossa asentelisin useille koneille ikäänkuin yrityksen ympäristössä tarvittavia ohjelmia.  Jokaiselle ssh varayhteydet, jollekin web palvelin, toiselle tietokantaohjelmaa. Ainakin tämä olisi tavoitteena. Ja kaikki asennukset ja päivitykset automatisoituna.
 
 
 ## d) VirtualHost 19.11.2024 20:05-20:55
