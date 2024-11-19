@@ -1,4 +1,4 @@
-# h3 Demoni 18.11.2024 18:15-
+# h3 Demoni 18.11.2024 18:15-20:30; 19.11.2024 19:10-
 Tämä on palvelinten hallinta -kurssin kolmannen viikkotehtävän raportti. Raportti koostuu viidestä tehtävästä (x-d) ja niiden ratkaisuista. Tehtävänanto löytyy https://terokarvinen.com/palvelinten-hallinta/#h3-demoni. Työskentely tapahtuu kotona omalla kannettavalla, joka on kevyeen pelikäyttöön tarkoitettu. Käyttöjärjestelmänä Windows 11 Home, ja tehtävien tekemiseen VirtualBoxin kautta asennettu Linux Debian Bookworm, jota operoin Windowsin komentoriviltä (vagrant ssh).
 
 ## x) Lue ja tiivistä
@@ -160,7 +160,29 @@ Tässä idempotenssi
 
 ![Add file: Upload](h3_kuvat/h3_14.png)
 
+### UPDATE 19.11.2024 19:10-
+Kokeilin ajaa tämän saman moduulin orjille.
+
+    sudo salt '*' -l debug state.apply ssh
+
+Tämän kanssa oli hienoisia ongelmia, jotka johtuivat siitä, että salt-master ei pysynyt päällä ja connection timed out monesti. Tämä tuli todennettua `sudo systemctl status salt-master` komennolla. Kokeilin monta kertaa `sudo systemctl restart salt-master` komentoa, ja perään `sudo salt '*' test.ping` komentoa, kunnes minion t002 palautti arvon "true".
+
+Tämän jälkeen uusi kokeilu `sudo salt '*' -l debug state.apply ssh` ja komento meni läpi. Ajoin vielä uudelleen, jotta sain idempotenssiin varmuuden. Alimmassa kuvassa minionilla näkyvissä sshd_config
+
+tähän h3_15
+
+tähän h3_16
+
+tähän h3_17
+
 ## c) Oma moduuli
+
+
+
+## d) VirtualHost
+Tehtävässä on tarkoitus asentaa Apache tarjoamaan websivua localhostissa. Html-tiedoston tulee olla jonkun käyttäjän kotihakemistossa ja muokattavissa ilman sudoa.
+
+
 
 ## Lähteet
 - Karvinen, T. 2018. Name Based Virtual Hosts on Apache. https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/. Luettavissa 18.11.2024
