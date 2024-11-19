@@ -251,7 +251,7 @@ Tässä kohdassa on hyvä ajaa ja katsoa virheet
 
 Jumitti, sekä master kaatui muutaman kerran. Kävi ilmi, että parent directory ei ole olemassa index.html filun luonnille orjakoneelle. Tästä on hyvä jatkaa seuraavana päivänä.
 
-
+![Add file: Upload](h3_kuvat/h3_20.png)
 
 ## Lähteet
 - Karvinen, T. 2018. Name Based Virtual Hosts on Apache. https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/. Luettavissa 18.11.2024
