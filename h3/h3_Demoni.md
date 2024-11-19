@@ -171,12 +171,11 @@ Tämän jälkeen uusi kokeilu `sudo salt '*' -l debug state.apply ssh` ja koment
 
 ![Add file: Upload](h3_kuvat/h3_15.png)
 
-tähän h3_16
+![Add file: Upload](h3_kuvat/h3_16.png)
 
-tähän h3_18
+![Add file: Upload](h3_kuvat/h3_18.png)
 
-tähän h3_17
-
+![Add file: Upload](h3_kuvat/h3_17.png)
 ## c) Oma moduuli
 
 
