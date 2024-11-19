@@ -285,7 +285,7 @@ sen jälkeen `curl localhost` näytti minionilla edelleen apachen oletussivua. K
 
     curl localhost
 
-tähän h3_21
+![Add file: Upload](h3_kuvat/h3_21.png)
     
 
 ## Lähteet
