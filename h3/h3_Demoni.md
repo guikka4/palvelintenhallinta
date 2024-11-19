@@ -160,7 +160,7 @@ Tässä idempotenssi
 
 ![Add file: Upload](h3_kuvat/h3_14.png)
 
-### UPDATE 19.11.2024 19:10-
+### UPDATE 19.11.2024 19:10-20:00
 Kokeilin ajaa tämän saman moduulin orjille.
 
     sudo salt '*' -l debug state.apply ssh
@@ -176,6 +176,7 @@ Tämän jälkeen uusi kokeilu `sudo salt '*' -l debug state.apply ssh` ja koment
 ![Add file: Upload](h3_kuvat/h3_18.png)
 
 ![Add file: Upload](h3_kuvat/h3_17.png)
+
 ## c) Oma moduuli
 
 
