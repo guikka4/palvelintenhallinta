@@ -181,8 +181,69 @@ Tämän jälkeen uusi kokeilu `sudo salt '*' -l debug state.apply ssh` ja koment
 
 
 
-## d) VirtualHost
-Tehtävässä on tarkoitus asentaa Apache tarjoamaan websivua localhostissa. Html-tiedoston tulee olla jonkun käyttäjän kotihakemistossa ja muokattavissa ilman sudoa.
+## d) VirtualHost 19.11.2024 20:05-
+
+Tehtävässä on tarkoitus asentaa Apache tarjoamaan websivua localhostissa. Html-tiedoston tulee olla jonkun käyttäjän kotihakemistossa ja muokattavissa ilman sudoa. Vinkit https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/?fromSearch=virtual%20host.
+
+Tarkoituksenani on laittaa Saltilla masterilta orjalle moduuli, joka sisältää apachen asennuksen, käyttäjän luonnin, sekä apachen asetustiedostot. Samalla korvaantuisi kotisivu localhostiin.
+Aloitin tehtävän ottamalla orjakoneelta tämän hetkisen tilanteen. Apache2 on jo käynnissä, käyttäjät näkyvissä ja apachen testisivu näkyvissä localhostissa (kuvakaappaus alla).
+
+tähän h3_19
+
+Tässä vaiheessa on luotuna jo moduuli `apachetest` jota olen käyttänyt aiemmin. Muokkasin sen init.sls tiedostoa, loin apachen konffitiedoston moduulikansioon, sekä tein index.html tiedoston samaiseen sijaintiin `/srv/salt/apachetest`, jotta moduulin kaikki tiedostot menisivät minionille jakoon.
+
+### init.sls
+
+    apacheuser:
+      user.present
+
+    /home/apacheuser/publicweb/index.html:
+      file.managed:
+        - source: "salt://apachetest/index.html"
+
+    apache2:
+      pkg.installed
+
+    /etc/apache2/sites-available/test.conf:
+      file.managed:
+      - source: "salt://apachetest/test.conf"
+
+    apache2.service:
+      service.running
+
+### index.html
+    <!doctype html>
+
+      <html lang="fi">
+          <head>
+          <meta charset="UTF-8">
+          <title>Testing Apachedrop with Salt</title>
+          </head>
+
+    <body>
+
+          <h1>Testing apachedrop with a new html page</h1>
+
+          <p>Testataan ääkkösetkin.</p>
+
+          <p>Testissä dropattiin myös uusi käyttäjä ja hakemisto<p>
+
+    </body>
+    </html>
+
+### test.conf
+
+    <VirtualHost *:80>
+          ServerName apachetest.com
+          ServerAlias www.apachetest.com
+
+                  DocumentRoot /home/apacheuser/publicweb/
+                  <Directory /home/apacheuser/publicweb/>
+
+                          Require all granted
+
+                  </Directory>
+    </Virtualhost>
 
 
 
