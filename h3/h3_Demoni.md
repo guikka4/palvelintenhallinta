@@ -245,7 +245,11 @@ Tässä vaiheessa on luotuna jo moduuli `apachetest` jota olen käyttänyt aiemm
                   </Directory>
     </Virtualhost>
 
+Tässä kohdassa on hyvä ajaa ja katsoa virheet
 
+    sudo salt '*' -l debug state.apply apachetest
+
+Jumitti, sekä master kaatui muutaman kerran.
 
 ## Lähteet
 - Karvinen, T. 2018. Name Based Virtual Hosts on Apache. https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/. Luettavissa 18.11.2024
