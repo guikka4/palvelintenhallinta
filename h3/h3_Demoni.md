@@ -167,11 +167,13 @@ Kokeilin ajaa tämän saman moduulin orjille.
 
 Tämän kanssa oli hienoisia ongelmia, jotka johtuivat siitä, että salt-master ei pysynyt päällä ja connection timed out monesti. Tämä tuli todennettua `sudo systemctl status salt-master` komennolla. Kokeilin monta kertaa `sudo systemctl restart salt-master` komentoa, ja perään `sudo salt '*' test.ping` komentoa, kunnes minion t002 palautti arvon "true".
 
-Tämän jälkeen uusi kokeilu `sudo salt '*' -l debug state.apply ssh` ja komento meni läpi. Ajoin vielä uudelleen, jotta sain idempotenssiin varmuuden. Alimmassa kuvassa minionilla näkyvissä sshd_config
+Tämän jälkeen uusi kokeilu `sudo salt '*' -l debug state.apply ssh` ja komento meni läpi. Ajoin vielä uudelleen, jotta sain idempotenssiin varmuuden. Jouduin jälleen käynnistelemään masteria uudelleen (kolmasti), ennenkuin komento meni läpi ja master pysyi käynnissä. Kolmas kuva näyttää netcatin porttikyselyn minionilta. Alimmassa kuvassa minionilla näkyvissä sshd_config.
 
-tähän h3_15
+![Add file: Upload](h3_kuvat/h3_15.png)
 
 tähän h3_16
+
+tähän h3_18
 
 tähän h3_17
 
