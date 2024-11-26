@@ -15,10 +15,9 @@ Tehtävänanto https://terokarvinen.com/palvelinten-hallinta/#h4-puolikas.
 - Näytönohjain NVIDIA GeForce RTX 3060 laptop, 6144Mt omalla muistilla
 
 # Virtuaaliympäristö pystyyn
+Lähtötilanne: Vagrant on asennettuna HostOS:lle.
 
-
-
-# SaltStack asennus
+Tarkoitus on ladata Debian12 Bookworm kuva HostOS:n käyttäjäni hakemistoon ja luoda sinne Vagrantfile joka käynnistettäessä tekee viisi virtuaalikonetta, joista yksi toimii masterina ja neljä minionina. Vagrantfilessä on scripti, joka asentaa salt-master ja salt-minion demonit oikeille koneille. Vinkit https://terokarvinen.com/2023/salt-vagrant/?fromSearch=salt%20vagrant%20automati.
 
 
 
@@ -33,4 +32,6 @@ Tehtävänanto https://terokarvinen.com/palvelinten-hallinta/#h4-puolikas.
 ## Työpöytä
 
 ## Lähteet
-- Karvinen, T. 2024. Tehtävänanto https://terokarvinen.com/palvelinten-hallinta/#h4-puolikas. Luettavissa 26.11.2024
+- Karvinen, T. 2023. Salt Vagrant - automatically provision one master and two slaves. https://terokarvinen.com/2023/salt-vagrant/?fromSearch=salt%20vagrant%20automati. Luettavissa 26.11.2024
+- Karvinen, T. 2024. Tehtävänanto. https://terokarvinen.com/palvelinten-hallinta/#h4-puolikas. Luettavissa 26.11.2024
+- 
