@@ -122,9 +122,9 @@ Salt minion tai master eivät vieläkään asennu. Hakemistot ovat kyllä asentu
     sudo apt-get update
     sudo apt-get -y install salt-minion
 
-tähän h4_4
+![Add file: Upload](h4_kuvat/h4_4.png)
 
-h4_5
+![Add file: Upload](h4_kuvat/h4_5.png)
 
 Minioneilla tekemään osoitus masterille, koska scripti ei ole luonut tiedostoa eikä muokannut sitä
 
@@ -139,7 +139,7 @@ Sitten masterilla avainten hyväksyntä. Ensin listaus että kaikki avainpyynnö
     sudo salt-key --list all
     sudo salt-key -A
 
-tähän h4_6
+![Add file: Upload](h4_kuvat/h4_6.png)
 
 ## Apache2
 
