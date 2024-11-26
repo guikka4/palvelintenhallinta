@@ -14,7 +14,7 @@ Tehtävänanto https://terokarvinen.com/palvelinten-hallinta/#h4-puolikas.
 - Muisti: 16 Gt
 - Näytönohjain NVIDIA GeForce RTX 3060 laptop, 6144Mt omalla muistilla
 
-# Virtuaaliympäristö pystyyn 26.11.2024 18:10-19:20
+# Virtuaaliympäristö pystyyn 26.11.2024 18:10-19:45
 Lähtötilanne: Vagrant on asennettuna HostOS:lle.
 
 ![Add file: Upload](h4_kuvat/h4_1.png)
