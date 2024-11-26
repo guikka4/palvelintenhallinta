@@ -134,12 +134,14 @@ Minioneilla tekemään osoitus masterille, koska scripti ei ole luonut tiedostoa
 
 Toistin tämän kaikille minion koneille t001-t004. Jokaisen config filen muokkaamisen jälkeen demonin uudelleen käynnistys `sudo systemctl restart salt-minion`
 
-Sitten masterilla avainten hyväksyntä. Ensin listaus että kaikki avainpyynnöt tulleet minioneilta, ja sitten hyväksyntä
+Sitten masterilla avainten hyväksyntä. Ensin listaus että kaikki avainpyynnöt tulleet minioneilta, ja sitten hyväksyntä. Lopuksi vielä testi, että minionit vastaavat.
 
     sudo salt-key --list all
     sudo salt-key -A
 
-tähän h4_7
+    sudo salt '*' test.ping
+
+![Add file: Upload](h4_kuvat/h4_7.png)
 
 ## Apache2
 
