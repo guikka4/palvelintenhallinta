@@ -5,6 +5,8 @@ Raportin kirjoittamisen alkuhetki on 26.11.2024 klo 17:15. Sisältö voi muuttua
 
 Raportin kirjoittamisessa käytän selainta HostOS:n puolella. HostOS on Windows 11, ja käytettävä rauta on kevyeen pelikäyttöön tarkoitettu kannettava tietokone. Vagrant ssh:n operoinnissa (virtuaalikoneet) käytän Windows PowerShelliä.
 
+Tehtävänanto https://terokarvinen.com/palvelinten-hallinta/#h4-puolikas.
+
 ## HostOS
 - Asus Tuf Gaming A15 FA506QM kannettava tietokone
 - Käyttöjärjestelmä: Windows 11 Home
@@ -12,4 +14,23 @@ Raportin kirjoittamisessa käytän selainta HostOS:n puolella. HostOS on Windows
 - Muisti: 16 Gt
 - Näytönohjain NVIDIA GeForce RTX 3060 laptop, 6144Mt omalla muistilla
 
+# Virtuaaliympäristö pystyyn
 
+
+
+# SaltStack asennus
+
+
+
+## Apache2
+
+
+
+## PostgreSQL
+
+
+
+## Työpöytä
+
+## Lähteet
+- Karvinen, T. 2024. Tehtävänanto https://terokarvinen.com/palvelinten-hallinta/#h4-puolikas. Luettavissa 26.11.2024
