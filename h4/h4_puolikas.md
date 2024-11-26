@@ -17,9 +17,22 @@ Tehtävänanto https://terokarvinen.com/palvelinten-hallinta/#h4-puolikas.
 # Virtuaaliympäristö pystyyn
 Lähtötilanne: Vagrant on asennettuna HostOS:lle.
 
+tähän h4_1
+
 Tarkoitus on ladata Debian12 Bookworm kuva HostOS:n käyttäjäni hakemistoon ja luoda sinne Vagrantfile joka käynnistettäessä tekee viisi virtuaalikonetta, joista yksi toimii masterina ja neljä minionina. Vagrantfilessä on scripti, joka asentaa salt-master ja salt-minion demonit oikeille koneille. Vinkit https://terokarvinen.com/2023/salt-vagrant/?fromSearch=salt%20vagrant%20automati.
 
+Alla olevat komennot tapahtuvat siis HostOS:n puolella.
 
+    mkdir moduleproject
+    cd moduleproject
+
+    vagrant init debian/bookworm64
+
+tähän h4_2
+
+Vagrantfile
+
+    
 
 ## Apache2
 
