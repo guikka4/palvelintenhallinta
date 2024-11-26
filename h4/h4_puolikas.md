@@ -17,7 +17,7 @@ Tehtävänanto https://terokarvinen.com/palvelinten-hallinta/#h4-puolikas.
 # Virtuaaliympäristö pystyyn 26.11.2024 18:10-19:20
 Lähtötilanne: Vagrant on asennettuna HostOS:lle.
 
-![Add file: Upload](h2_kuvat/h4_1.png)
+![Add file: Upload](h4_kuvat/h4_1.png)
 
 Tarkoitus on ladata Debian12 Bookworm kuva HostOS:n käyttäjäni hakemistoon ja luoda sinne Vagrantfile joka käynnistettäessä tekee viisi virtuaalikonetta, joista yksi toimii masterina ja neljä minionina. Vagrantfilessä on scripti, joka asentaa salt-master ja salt-minion demonit oikeille koneille. Vinkit https://terokarvinen.com/2023/salt-vagrant/?fromSearch=salt%20vagrant%20automati.
 
@@ -28,7 +28,7 @@ Alla olevat komennot tapahtuvat siis HostOS:n puolella.
 
     vagrant init debian/bookworm64
 
-![Add file: Upload](h2_kuvat/h4_2.png)
+![Add file: Upload](h4_kuvat/h4_2.png)
 
 Vagrantfilessä on määriteltynä 4 minionkonetta t001-t004 sekä yksi master tmaster.
 
@@ -87,7 +87,7 @@ Vagrantfilessä on määriteltynä 4 minionkonetta t001-t004 sekä yksi master t
 
 Tämän jälkeen testi `vagrant up`. Salt-master ja Salt-minion ei asennu. Nyt muistin, että nykyään näiden asennus vaatii hakemiston asennuksen. Lisävinkit https://saltproject.io/blog/salt-project-package-repo-migration-and-guidance/. Joten poistin uudet koneet pysäyttämällä `vagrant halt` ja tuhoamalla ne `vagrant destroy` jonka jälkeen muokkasin vagrantfileä. Huomattakoon, että muuten virtuaalikoneiden asennus onnistui ensimmäiselläkin kerralla, ja ne olivat käynnissä. Kokeilin myös ssh yhteyttä t004 ja tmaster koneisiin, ja alla oleva todiste siitä, että toimi.
 
-![Add file: Upload](h2_kuvat/h4_3.png)
+![Add file: Upload](h4_kuvat/h4_3.png)
 
 Siispä vagrantfilen kimppuun. Uudistettu scriptiosa alla.
 
