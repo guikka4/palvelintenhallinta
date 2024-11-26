@@ -87,7 +87,7 @@ Vagrantfilessä on määriteltynä 4 minionkonetta t001-t004 sekä yksi master t
 
 Tämän jälkeen testi `vagrant up`. Salt-master ja Salt-minion ei asennu. Nyt muistin, että nykyään näiden asennus vaatii hakemiston asennuksen. Lisävinkit https://saltproject.io/blog/salt-project-package-repo-migration-and-guidance/. Joten poistin uudet koneet pysäyttämällä `vagrant halt` ja tuhoamalla ne `vagrant destroy` jonka jälkeen muokkasin vagrantfileä. Huomattakoon, että muuten virtuaalikoneiden asennus onnistui ensimmäiselläkin kerralla, ja ne olivat käynnissä. Kokeilin myös ssh yhteyttä t004 ja tmaster koneisiin, ja alla oleva todiste siitä, että toimi.
 
-tähän h4_3
+![Add file: Upload](h2_kuvat/h4_3.png)
 
 Siispä vagrantfilen kimppuun. Uudistettu scriptiosa alla.
 
@@ -117,7 +117,29 @@ Siispä vagrantfilen kimppuun. Uudistettu scriptiosa alla.
     echo "See also: https://terokarvinen.com/2023/salt-vagrant/"
     MASTER
 
-Salt minion tai master eivät vieläkään asennu. Testasin käsin pakettien päivitykset sekä saltin asennuksen. Asennus toimi manuaalisesti. Tältä erää hyvä lopettaa.
+Salt minion tai master eivät vieläkään asennu. Hakemistot ovat kyllä asentuneet... Testasin käsin pakettien päivitykset sekä saltin asennuksen. Asennus toimi manuaalisesti. Tältä erää hyvä lopettaa scriptin nysvääminen ja siirtyä käsin asenteluun.
+
+    sudo apt-get update
+    sudo apt-get -y install salt-minion
+
+tähän h4_4
+
+h4_5
+
+Minioneilla tekemään osoitus masterille, koska scripti ei ole luonut tiedostoa eikä muokannut sitä
+
+    sudoedit /etc/salt/minion
+
+    master: 192.168.12.3
+
+Toistin tämän kaikille minion koneille t001-t004. Jokaisen config filen muokkaamisen jälkeen demonin uudelleen käynnistys `sudo systemctl restart salt-minion`
+
+Sitten masterilla avainten hyväksyntä. Ensin listaus että kaikki avainpyynnöt tulleet minioneilta, ja sitten hyväksyntä
+
+    sudo salt-key --list all
+    sudo salt-key -A
+
+tähän h4_6
 
 ## Apache2
 
