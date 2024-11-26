@@ -119,12 +119,12 @@ Siispä vagrantfilen kimppuun. Uudistettu scriptiosa alla.
 
 Salt minion tai master eivät vieläkään asennu. Hakemistot ovat kyllä asentuneet... Testasin käsin pakettien päivitykset sekä saltin asennuksen. Asennus toimi manuaalisesti. Tältä erää hyvä lopettaa scriptin nysvääminen ja siirtyä käsin asenteluun.
 
-    sudo apt-get update
-    sudo apt-get -y install salt-minion
-
 ![Add file: Upload](h4_kuvat/h4_4.png)
 
 ![Add file: Upload](h4_kuvat/h4_5.png)
+
+    sudo apt-get update
+    sudo apt-get -y install salt-minion
 
 Minioneilla tekemään osoitus masterille, koska scripti ei ole luonut tiedostoa eikä muokannut sitä
 
