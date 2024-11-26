@@ -139,7 +139,7 @@ Sitten masterilla avainten hyväksyntä. Ensin listaus että kaikki avainpyynnö
     sudo salt-key --list all
     sudo salt-key -A
 
-![Add file: Upload](h4_kuvat/h4_6.png)
+tähän h4_7
 
 ## Apache2
 
