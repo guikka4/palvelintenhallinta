@@ -78,7 +78,7 @@ Käynnistin palvelimen uudelleen ja tarkistin lopputuloksen
 
 ![Add file: Upload](h8_kuvat/k2.png)
 
-### Sama käyttäen Saltia 11.12.2024 11:15-
+### Sama käyttäen Saltia 11.12.2024 11:15-11:35
 Aloitin kopioimalla Saltia käyttäen juuri luodut tiedostot test.conf ja index.html salt-moduuliin. Tein ensin moduulikansion ja tein sinne tiedoston, jonka tilan ajoin. Näin sain tiedostot kopioitua Saltia käyttäen moduulikansioon.
 
     sudo mkdir -p /srv/salt/apache2
@@ -103,7 +103,7 @@ Sitten ajoin moduulin. Kuvakaappauksessa lopputulema idempotenttina
 
     sudo salt-call --local -l debug state.apply apache2
 
-tähän k3
+![Add file: Upload](h8_kuvat/k3.png)
 
 Tämän jälkeen muokkasin init.sls tiedostoa niin, että sen sisältö asentaisi apachen minioneille, ja siirtäisi tiedostot oikeisiin paikkoihin luoden hakemistopolut, mikäli niitä ei ole. Lisäksi tein käyttäjän, joka jatkossa hallinnoi palvelinta. Tila on kuitenkin tässä tehtävässä ajettu lokaalisti.
 
@@ -128,7 +128,7 @@ Homma onnistui tällä yrittämällä.
 
     sudo salt-call --local -l debug state.apply apache2
     
-k4
+![Add file: Upload](h8_kuvat/k4.png)
 
 ## Lähteet
 - Karvinen, T. 2018. Nabe based virtual host. https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/?fromSearch=virtual%20host
