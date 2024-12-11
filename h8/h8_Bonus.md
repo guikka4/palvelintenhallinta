@@ -130,7 +130,7 @@ Homma onnistui tällä yrittämällä.
     
 ![Add file: Upload](h8_kuvat/k4.png)
 
-## h3 Demoni. Tehtävä g) PostgreSQL 11.12.2024 12:50-
+## h3 Demoni. Tehtävä g) PostgreSQL 11.12.2024 12:50-13:50
 Tehtävässä on tarkoitus asentaa PostgreSQL tietokannanhallintajärjestelmä. [tehtävänanto](https://terokarvinen.com/palvelinten-hallinta/#h3-demoni). Vinkit tehtävän tekemiseen [täältä](https://terokarvinen.com/2016/postgresql-install-and-one-table-database-sql-crud-tutorial-for-ubuntu/?fromSearch=postgre). Lisäksi `\help` komento postgresql:ssä.
 
 Aloitin asentamalla paketin ja tarkistamalla asennuksen onnistumisen.
