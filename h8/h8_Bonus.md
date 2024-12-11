@@ -130,6 +130,53 @@ Homma onnistui tällä yrittämällä.
     
 ![Add file: Upload](h8_kuvat/k4.png)
 
+## h3 Demoni. Tehtävä g) PostgreSQL 11.12.2024 12:50-
+Tehtävässä on tarkoitus asentaa PostgreSQL tietokannanhallintajärjestelmä. [tehtävänanto](https://terokarvinen.com/palvelinten-hallinta/#h3-demoni). Vinkit tehtävän tekemiseen [täältä](https://terokarvinen.com/2016/postgresql-install-and-one-table-database-sql-crud-tutorial-for-ubuntu/?fromSearch=postgre). Lisäksi `\help` komento postgresql:ssä.
+
+Aloitin asentamalla paketin ja tarkistamalla asennuksen onnistumisen.
+
+    sudo apt-get update
+    sudo apt-get -y install postgresql
+
+    sudo systemctl status postgresql
+
+Asennus onnitui hyvin. Seuraavaksi loin tietokannan sekä käyttäjän. Kirjauduin myös tietokantaan ja tarkistin että tauluja ei ole luotuna.
+
+    sudo -u postgres createdb bassi
+    sudo -u postgres createuser bassi
+    psql
+    \d
+    
+tähän k5
+
+Yritin suoraan alkaa tekemään tietokantaan taulua.
+
+    CREATE TABLE opintojaksot (id SERIAL PRIMARY KEY, nimi VARCHAR(50), laajuus INTEGER);
+
+Tämä ei kuitenkaan onnistu, koska tietokanta antaa vastaukseksi `ERROR:  permission denied for schema public`. Kyseessä on selvästikin käyttöoikeuskysymys. Jouduin kirjautumaan postgresql superuserina sisään tietokantaan, ja antamaan oikeudet juuri luoneelleni käyttäjälle. `exit` komennolla pääsin ulos bassi -käyttäjän tietokannasta.
+
+    sudo -u postgres psql # kirjautuminen superuserina
+
+    GRANT ALL PRIVILEGES ON DATABASE bassi TO bassi; # Oikeudet databaseen
+
+Tämän jälkeen kirjauduin `exit` ja `psql` komennoilla takaisin bassi käyttäjälle, ja kokeilin luoda tietokantaan taulun uudestaan. `CREATE TABLE opintojaksot (id SERIAL PRIMARY KEY, nimi VARCHAR(50), laajuus INTEGER);` antoi kuitenkin saman ERROR:n kuin viimeksi.
+
+Kirjauduin takaisin superuserille, ja lisäsin vielä public scheman käyttöön oikeudet käyttäjälle bassi.
+
+     GRANT ALL ON SCHEMA public TO bassi;
+
+Tämän jälkeen kirjautuminen takaisin `bassi` lle. `exit` `psql`.
+
+    CREATE TABLE opintojaksot (id SERIAL PRIMARY KEY, nimi VARCHAR(50), laajuus INTEGER);
+    INSERT INTO opintojaksot (nimi, laajuus) VALUES ('linux-palvelimet', 5);
+    INSERT INTO opintojaksot (nimi, laajuus) VALUES ('palvelinten hallinta', 5);
+
+Lopuksi tulostin taulun sekä listasin kaikki relaatiot. Niitä ei ole kuin yksi, juuri luotu.
+
+tähän k6 ja k7
+
+
 ## Lähteet
+- Karvinen, T. 2016. PostgreSQL. https://terokarvinen.com/2016/postgresql-install-and-one-table-database-sql-crud-tutorial-for-ubuntu/?fromSearch=postgre
 - Karvinen, T. 2018. Nabe based virtual host. https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/?fromSearch=virtual%20host
 - Karvinen, T. 2024. Tehtävä h2: i. https://terokarvinen.com/palvelinten-hallinta/#h2-infra-as-code
