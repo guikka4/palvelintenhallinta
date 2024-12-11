@@ -20,6 +20,7 @@ Sitten asennus.
     curl localhost # näyttää apache2 palvelimen oletussivun
 
 Asennus onnistui.
+
 ![Add file: Upload](h8_kuvat/k1.png)
 
 Tämän jälkeen oli vuorossa konfig-tiedoston tekeminen
