@@ -175,11 +175,53 @@ Lopuksi tulostin taulun sekä listasin kaikki relaatiot. Niitä ei ole kuin yksi
 
 ![Add file: Upload](h8_kuvat/k6.png) ![Add file: Upload](h8_kuvat/k7.png)
 
+## h3 Demoni tehtävä e) Caddy asennus. 11.12.2024 15:30-16:45
+Tehtävässä on tarkoitus asentaa Caddy webpalvelin, ja korvata etusivu ilman, että joudutaan käyttämään sudoa. [tehtävänanto](https://terokarvinen.com/palvelinten-hallinta/#h3-demoni) ja vinkit [caddyserver](https://caddyserver.com/docs/getting-started) sekä [youtube, programmingpercy](https://www.youtube.com/watch?v=G8Tsi9hQJxw).
+
+Ensin [repositoryn](https://caddyserver.com/docs/install) ja paketin asennus
+
+    sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl
+    curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+    curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+    sudo apt-get update
+    sudo apt-get -y install caddy
+
+Sitten testaus että on asentunut `sudo systemctl status caddy`. On asentunut, mutta ei käynnissä. Testailin vielä käynnistämistä `caddy start` ja `caddy run` komennoilla. `caddy stop` saa palvelimen sammumaan`.
+
+tähän k8
+
+Seuraavaksi tein config tiedoston (Caddyfile) käyttäjäni kotihakemistoon ja osoitin, että caddyn tulee käyttää kyseistä tiedostoa asetustensa hakemiseen. Tein tiedostoa varten myös uuden "caddy" kansion.
+
+    mkdir /home/bassi/caddy/
+    cd /home/bassi/caddy/
+    touch Caddyfile
+    caddy run --config Caddyfile
+
+Caddyfilen sisältö
+
+    app.localhost {
+	  respond "Hello!"
+    }
+
+    
+Tämän jälkeen ajoin käynnistyksen sudona ja testasin toimivuuden nettiselaimessa osoitteessa https://app.localhost:2019.
+
+    sudo caddy run
+
+tähän k9
+    
+caddyn ajo ilman sudoa ei onnistunut tässä. Tiedostoa pääsee kyllä muokkaamaan, ja se löytyy bassi-käyttäjän kotihakemistosta. Jos yritän ajaa caddyn käynnistyksen ilman sudoa, vastaukseksi tulee `Error: loading initial config: loading new config: http app module: start: listening on :443: listen tcp :443: bind: permission denied` ja palvelin ei käynnisty. Tässä vaiheessa olen tyytyväinen lopputulemaan, olihan tässä jotain uutta ja ihmeellistä ja jonkinlainen onnistuminen ainakin uuden palvelimen asennuksessa ja käyttöönotossa localhostissa.
+
 
 ## Lähteet
+- Caddyserver.com. 2024. Getting started. https://caddyserver.com/docs/getting-started
+- Caddyserver.com. 2024. Installing. https://caddyserver.com/docs/install
+- Chua Hock-Chuan. 2021. https://www3.ntu.edu.sg/home/ehchua/programming/sql/PostgreSQL_GetStarted.html
 - Karvinen, T. 2016. PostgreSQL. https://terokarvinen.com/2016/postgresql-install-and-one-table-database-sql-crud-tutorial-for-ubuntu/?fromSearch=postgre
 - Karvinen, T. 2018. Nabe based virtual host. https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/?fromSearch=virtual%20host
 - Karvinen, T. 2024. Tehtävä h2: i. https://terokarvinen.com/palvelinten-hallinta/#h2-infra-as-code
+- ProgramminPercy. 2024. Youtube. https://www.youtube.com/watch?v=G8Tsi9hQJxw
 - StackOverflow. https://stackoverflow.com/questions/22483555/postgresql-give-all-permissions-to-a-user-on-a-postgresql-database
 - StackOverflow. https://stackoverflow.com/questions/67276391/why-am-i-getting-a-permission-denied-error-for-schema-public-on-pgadmin-4
-- Chua Hock-Chuan. https://www3.ntu.edu.sg/home/ehchua/programming/sql/PostgreSQL_GetStarted.html
+- 
+
