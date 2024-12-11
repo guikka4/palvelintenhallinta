@@ -20,7 +20,7 @@ Sitten asennus.
     curl localhost # näyttää apache2 palvelimen oletussivun
 
 Asennus onnistui.
-tähän k1
+![Add file: Upload](h8_kuvat/k1.png)
 
 Tämän jälkeen oli vuorossa konfig-tiedoston tekeminen
 
@@ -75,8 +75,9 @@ Käynnistin palvelimen uudelleen ja tarkistin lopputuloksen
     sudo systemctl restart apache2
     curl localhost
 
-tähän k2
+![Add file: Upload](h8_kuvat/k2.png)
 
 
 ## Lähteet
+- Karvinen, T. 2018. Nabe based virtual host. https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/?fromSearch=virtual%20host
 - Karvinen, T. 2024. Tehtävä h2: i. https://terokarvinen.com/palvelinten-hallinta/#h2-infra-as-code
