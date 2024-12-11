@@ -153,7 +153,7 @@ Yritin suoraan alkaa tekemään tietokantaan taulua.
 
     CREATE TABLE opintojaksot (id SERIAL PRIMARY KEY, nimi VARCHAR(50), laajuus INTEGER);
 
-Tämä ei kuitenkaan onnistu, koska tietokanta antaa vastaukseksi `ERROR:  permission denied for schema public`. Kyseessä on selvästikin käyttöoikeuskysymys. Jouduin kirjautumaan postgresql superuserina sisään tietokantaan, ja antamaan oikeudet juuri luoneelleni käyttäjälle. `exit` komennolla pääsin ulos bassi -käyttäjän tietokannasta.
+Tämä ei kuitenkaan onnistu, koska tietokanta antaa vastaukseksi `ERROR:  permission denied for schema public`. Kyseessä on selvästikin käyttöoikeuskysymys. Jouduin kirjautumaan postgresql superuserina sisään tietokantaan, ja antamaan oikeudet juuri luoneelleni käyttäjälle. `exit` komennolla pääsin ulos bassi -käyttäjän tietokannasta. Tässä kohtaa googlasin apua, ja löysin artikkelit StackOverflowsta [täältä](https://stackoverflow.com/questions/22483555/postgresql-give-all-permissions-to-a-user-on-a-postgresql-database) ja  [täältä](https://stackoverflow.com/questions/67276391/why-am-i-getting-a-permission-denied-error-for-schema-public-on-pgadmin-4) sekä Chua Hock-Chuan opetussivuston ohjelmointiin [täältä](https://www3.ntu.edu.sg/home/ehchua/programming/sql/PostgreSQL_GetStarted.html).
 
     sudo -u postgres psql # kirjautuminen superuserina
 
@@ -180,3 +180,6 @@ Lopuksi tulostin taulun sekä listasin kaikki relaatiot. Niitä ei ole kuin yksi
 - Karvinen, T. 2016. PostgreSQL. https://terokarvinen.com/2016/postgresql-install-and-one-table-database-sql-crud-tutorial-for-ubuntu/?fromSearch=postgre
 - Karvinen, T. 2018. Nabe based virtual host. https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/?fromSearch=virtual%20host
 - Karvinen, T. 2024. Tehtävä h2: i. https://terokarvinen.com/palvelinten-hallinta/#h2-infra-as-code
+- StackOverflow. https://stackoverflow.com/questions/22483555/postgresql-give-all-permissions-to-a-user-on-a-postgresql-database
+- StackOverflow. https://stackoverflow.com/questions/67276391/why-am-i-getting-a-permission-denied-error-for-schema-public-on-pgadmin-4
+- Chua Hock-Chuan. https://www3.ntu.edu.sg/home/ehchua/programming/sql/PostgreSQL_GetStarted.html
