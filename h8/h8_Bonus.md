@@ -147,7 +147,7 @@ Asennus onnitui hyvin. Seuraavaksi loin tietokannan sekä käyttäjän. Kirjaudu
     psql
     \d
     
-tähän k5
+![Add file: Upload](h8_kuvat/k5.png)
 
 Yritin suoraan alkaa tekemään tietokantaan taulua.
 
@@ -173,7 +173,7 @@ Tämän jälkeen kirjautuminen takaisin `bassi` lle. `exit` `psql`.
 
 Lopuksi tulostin taulun sekä listasin kaikki relaatiot. Niitä ei ole kuin yksi, juuri luotu.
 
-tähän k6 ja k7
+![Add file: Upload](h8_kuvat/k6.png) ![Add file: Upload](h8_kuvat/k7.png)
 
 
 ## Lähteet
