@@ -188,7 +188,7 @@ Ensin [repositoryn](https://caddyserver.com/docs/install) ja paketin asennus
 
 Sitten testaus että on asentunut `sudo systemctl status caddy`. On asentunut, mutta ei käynnissä. Testailin vielä käynnistämistä `caddy start` ja `caddy run` komennoilla. `caddy stop` saa palvelimen sammumaan`.
 
-tähän k8
+![Add file: Upload](h8_kuvat/k8.png)
 
 Seuraavaksi tein config tiedoston (Caddyfile) käyttäjäni kotihakemistoon ja osoitin, että caddyn tulee käyttää kyseistä tiedostoa asetustensa hakemiseen. Tein tiedostoa varten myös uuden "caddy" kansion.
 
@@ -208,10 +208,11 @@ Tämän jälkeen ajoin käynnistyksen sudona ja testasin toimivuuden nettiselaim
 
     sudo caddy run
 
-tähän k9
+![Add file: Upload](h8_kuvat/k9.png)
     
-caddyn ajo ilman sudoa ei onnistunut tässä. Tiedostoa pääsee kyllä muokkaamaan, ja se löytyy bassi-käyttäjän kotihakemistosta. Jos yritän ajaa caddyn käynnistyksen ilman sudoa, vastaukseksi tulee `Error: loading initial config: loading new config: http app module: start: listening on :443: listen tcp :443: bind: permission denied` ja palvelin ei käynnisty. Tässä vaiheessa olen tyytyväinen lopputulemaan, olihan tässä jotain uutta ja ihmeellistä ja jonkinlainen onnistuminen ainakin uuden palvelimen asennuksessa ja käyttöönotossa localhostissa.
+Caddyn ajo ilman sudoa ei onnistunut tässä. Tiedostoa pääsee kyllä muokkaamaan, ja se löytyy bassi-käyttäjän kotihakemistosta. Jos yritän ajaa caddyn käynnistyksen ilman sudoa, vastaukseksi tulee `Error: loading initial config: loading new config: http app module: start: listening on :443: listen tcp :443: bind: permission denied` ja palvelin ei käynnisty. Tässä vaiheessa olen tyytyväinen lopputulemaan, olihan tässä jotain uutta ja ihmeellistä ja jonkinlainen onnistuminen ainakin uuden palvelimen asennuksessa ja käyttöönotossa localhostissa.
 
+Saltin kanssa kuvittelisin Caddyn asennuksen olevan suht samanlainen, kuin Apachen. Luodaan siis tiedostot, mitä käytetään palvelimella, ja työnnetään ne pakettiasennuksen kanssa masterilta minionille.
 
 ## Lähteet
 - Caddyserver.com. 2024. Getting started. https://caddyserver.com/docs/getting-started
